@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+  <style type="text/css">/* <![CDATA[ */  @import "css/tigris.css";  @import "css/inst.css";  /*  ]]> */ </style>
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>KoLmafia: Project Proposal</title>
+</head>
+
+<body>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=126572&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+<h2>Project Proposal</h2>
+
+<div class="app">
+
+ <h3>Project Information</h3>
+ <div class="axial">
+ <table>
+  <tr>
+   <th>Project:</th>
+   <td>KoLmafia</td>
+  </tr>
+  <tr>
+   <th>Summary:</th>
+   <td>a desktop tool which interfaces with the Kingdom of Loathing</td>
+  </tr>
+  <tr>
+   <th>Related Documents:</th>
+   <td>
+    <div style="display:none"><a href="plan.html">Project plan</a></div>
+    <div><a href="target-and-benefits.html">Target audience and benefits</a></div>
+   </td>
+  </tr>
+ </table>
+ </div>
+
+ <p class="readonly"><strong>Process impact:</strong> This proposal, along with drafts of related documents, will be used by management to determine whether or not to approve work on this project.  A clear and precise project plan helps set expectations that will be used later to evaluate the success of the project.</p>
+
+ <h3>Background and Motivation</h3>
+
+ <dl>
+
+ <dt>History</dt>
+
+ <dd><a href="http://www.kingdomofloathing.com">Kingdom of Loathing</a> is an online adventure game written in PHP.</dd>
+
+ <dt>Problem to be addressed</dt>
+
+ <dd>As players advance in level in this game, the tendency is for them to settle into routines where they repeat the same set of tasks over and over again, tasks which involve nothing more than senseless link-clicking.  As these routines continue, players begin to grow bored and dissatisfied, causing them to depart from the game without having experienced the subtler details which make the game enjoyable.</dd>
+
+ <dt>Current approaches</dt>
+
+  <dl><dd><li><a href="http://kolmelion.sourceforge.net">KoLmelion</a>: A VB.NET implementation of a Kingdom of Loathing desktop interface.</li>
+  <li><a href="http://kwikol.sourceforge.net">KwiKoL</a>: A Java library which interfaces with the Kingdom of Loathing using Jakarta's HttpClient.</li>
+  <li><a href="http://www.subjunctive.net/kol/kolcli.html">KoL CLI</a>: A PERL implementation of a Kingdom of Loathing command-line interface.</li>
+  <li><a href="http://www.stud.ntnu.no/~magnusrk/kol/">Argon</a>: A browser helper which interfaces with the Kingdom of Loathing.</li>
+
+ <dt>Motivation</dt>
+
+ <dd>Because the Kingdom of Loathing requires very simple input and generates very simple output, the OS-dependent and full-blown HTML parser solutions to this problem are overkill; a specialized, cross-platform tool can be created which consumes far fewer resouces while providing the user with the same experience.  However, many users aren't familiar with command-line utilities; therefore, they cannot enjoy the benefits provided by KoL CLI.</dd>
+
+ <dd>Written in Java without any use of C++ bindings, KoLmafia serves as a platform-independent solution. KoLmafia makes use of the built-in Java networking libraries to parse and retrieve only what's necessary in order to play Kingdom of Loathing, eliminating HTML parser overhead. Java's Swing libraries are also simple enough to provide the user with a clean interface without consuming resources or excessive screen space.</dd>
+
+ </dl>
+
+ <h3>Goal</h3>
+
+ <p>The goal of this project is to create a cross-platform desktop tool, written in Java (J2SE 1.5 compliant), which interfaces with the online adventure game, Kingdom of Loathing.  The project intends to provide all the user-friendliness of the <a href="http://kolmelion.sourceforge.net/">KoLmelion</a> graphical user interface while giving <a href="http://www.subjunctive.net/kol/kolcli.html">KoL CLI</a> and other command-line users the scripting flexibility to which they have grown accustomed.</p>
+
+ <p>For information regarding the benefits of this project, please refer to the <a href="target-and-benefits.html">target and benefits</a> document.</p>
+
+ <div style="display:none"><h3>Scope</h3>
+
+ <table>
+  <tr>
+   <th width=50%>In Scope</th>
+   <th width=50%>Out of Scope</th>
+  </tr>
+  <tr>
+   <td>[in scope]</td>
+   <td>[out of scope]</td>
+  </tr>
+ </table>
+
+ <h3>Risks and Rewards</h3>
+
+ <p>The main risks of this project are outlined in the <a href="plan.html">project plan</a>, and the main rewards for working on this project are outlined in the <a href="target-and-benefits.html">target and benefits</a> document.</p></div>
+
+</div>
+
+<div class="footnote">Copyright &#169; 2003 Jason Robbins.  All rights reserved. <a href="readyset-license.html">License terms</a>.  Retain this copyright statement whenever this file is used as a template.</div>
+
+</body>
+</html>

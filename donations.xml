@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="donations.xsl"?>
+
+<donation-list timestamp="September 2, 2007">
+
+    <donation name="A A A" pid="1183412">
+    	<item name="lime" quantity="42" />
+		<item name="stuffed cocoabo" quantity="6" />
+	</donation>
+
+	<donation name="Aces44" pid="332129">
+		<item name="heart-shaped balloon" quantity="1" />
+		<item name="personalized birthday cake" quantity="1" />
+		<item name="lime" quantity="A LOT" />
+		<item name="thought balloon" quantity="1" />
+		<item name="Knob sausage chow mein" quantity="10" />
+		<meat quantity="69" />
+	</donation>
+
+    <donation name="adeyke" pid="341946">
+		<item name="lime" quantity="27" />
+	</donation>
+
+    <donation name="AdgBC" pid="203742">
+		<item name="arrow'd heart balloon" quantity="1" />
+		<meat quantity="1000000" />
+	</donation>
+
+    <donation name="AlBundy" pid="339168">
+		<item name="portable corkscrew" quantity="50" />
+	</donation>
+
+    <donation name="Almost Last" pid="1417316">
+		<item name="stuffed can of asparagus" quantity="1" />
+	</donation>
+
+    <donation name="Amaurosis" pid="1166137">
+		<item name="stuffed cocoabo" quantity="4" />
+	</donation>
+
+    <donation name="Andy Schaak" pid="1333945">
+		<item name="lime" quantity="10" />
+		<item name="stuffed cocoabo" quantity="1" />
+	</donation>
+
+    <donation name="Angafirith" pid="644044">
+		<item name="rubber emo roe" quantity="8" />
+	</donation>
+
+    <donation name="Aprocalypse" pid="224321">
+		<item name="bow" quantity="1" />
+		<meat quantity="100000" />
+	</donation>
+
+    <donation name="Aristotle" pid="995127">
+		<item name="honey-dipped locust" quantity="1" />
+	</donation>
+
+    <donation name="Asturia" pid="372321">
+		<item name="pretty flower" quantity="1" />
+	</donation>
+
+    <donation name="AverageJoe" pid="425048">
+		<item name="plain brown wrapper" quantity="1" />
+	</donation>
+
+    <donation name="BDrag0n" pid="79974">
+		<item name="Mr. Accessory" quantity="1" />
+		<item name="black snowcone" quantity="1" />
+		<item name="purple snowcone" quantity="1" />
+		<item name="worn top hat" quantity="1" />
+		<meat quantity="500000" />
+	</donation>
+
+    <donation name="bigevildan" pid="99140">
+		<item name="gimlet" quantity="2" />
+		<item name="cold hi mein" quantity="3" />
+		<item name="stuffed Mob Penguin" quantity="1" />
+		<item name="birthday party jellybean cheesecake" quantity="1" />
+	</donation>
+
+    <donation name="bigevildude" pid="337545">
+		<item name="stuffed cocoabo" quantity="9" />
+	</donation>
+
+    <donation name="BobbyMcBain" pid="844767">
+		<item name="Valentine" quantity="1" />
+	</donation>
+
+    <donation name="Bogart" pid="1202961">
+		<item name="stuffed cocoabo" quantity="3" />
+	</donation>
+
+    <donation name="Bookworldman" pid="516782">
+		<item name="bat wing chow mein" quantity="1" />
+		<item name="Knob sausage chow mein" quantity="1" />
+		<item name="pr0n chow mein" quantity="1" />
+		<meat quantity="1337" />
+	</donation>
+
+    <donation name="Brap" pid="618302">
+		<item name="brick" quantity="15" />
+	</donation>
+
+    <donation name="CaffeinaBlack" pid="344948">
+		<item name="Hell ramen" quantity="10" />
+		<item name="extra-spicy bloody mary" quantity="10" />
+	</donation>
+
+    <donation name="Caillean" pid="1159052">
+		<item name="stuffed cocoabo" quantity="1" />
+		<meat quantity="7" />
+	</donation>
+
+    <donation name="CDMoyer" pid="599619">
+		<item name="black lotus" quantity="1" />
+		<item name="Breathetastic Premium Canned Air" quantity="1" />
+		<item name="stuffed cocoabo" quantity="2" />
+	</donation>
+
+    <donation name="Chitinid2" pid="1422786">
+		<item name="stuffed cocoabo" quantity="1" />
+	</donation>
+
+    <donation name="CoquetTheSaucy" pid="774707">
+		<item name="personalized birthday cake" quantity="1" />
+		<item name="heart-shaped balloon" quantity="1" />
+	</donation>
+
+    <donation name="Corso" pid="952101">
+		<item name="9-ball" quantity="15" />
+		<item name="stuffed cocoabo" quantity="1" />
+	</donation>
+
+    <donation name="Croft" pid="550986">
+		<item name="Valentine" quantity="1" />
+		<item name="lesser grodulated violet" quantity="1" />
+		<item name="tin magnolia" quantity="1" />
+		<item name="begpwnia" quantity="1" />
+		<item name="upsy daisy" quantity="1" />
+		<item name="half-orchid" quantity="1" />
+	</donation>
+
+    <donation name="Crowther" pid="533281">
+		<item name="stuffed cocoabo" quantity="16" />
+	</donation>
+
+    <donation name="dalgar" pid="659883">
+		<item name="red balloon" quantity="3" />
+		<item name="facsimile dictionary" quantity="2" />
+	</donation>
+
+    <donation name="Dangerpin" pid="283311">
+		<item name="bottle of rum" quantity="100" />
+	</donation>
+
+    <donation name="DeviSevere" pid="921534">
+		<item name="personalized birthday cake" quantity="1" />
+	</donation>
+
+    <donation name="devodore" pid="519365">
+		<item name="bloody mary" quantity="1" />
+		<item name="shot of orange schnapps" quantity="1" />
+		<item name="shot of grapefruit schnapps" quantity="1" />
+		<item name="shot of tomato schnapps" quantity="1" />
+		<item name="ducha de oro" quantity="3" />
+	</donation>
+
+    <donation name="dfens73" pid="245117">
+		<item name="Wint-O-Fresh mint" quantity="300" />
+		<item name="jazz soap" quantity="35" />
+	</donation>
+
+    <donation name="dietotenh" pid="568688">
+		<item name="Hell ramen" quantity="1" />
+	</donation>
+
+    <donation name="Disco Princess" pid="772561">
+    	<item name="white candy heart" quantity="1" />
+		<item name="stuffed cocoabo" quantity="17" />
+	</donation>
+
+    <donation name="dterphraud" pid="686959">
+		<item name="Wint-O-Fresh mint" quantity="521" />
+	</donation>
+
+    <donation name="Domloid" pid="315426">
+		<item name="Lucky Surprise Egg" quantity="25" />
+		<meat quantity="1" />
+	</donation>
+
+    <donation name="dronko" pid="1152450">
+		<item name="stuffed cocoabo" quantity="3" />
+		<meat quantity="1337" />
+	</donation>
+
+    <donation name="Dryke" pid="203825">
+		<item name="stuffed cocoabo" quantity="14" />
+	</donation>
+
+    <donation name="Dunkelheit" pid="331332">
+		<item name="bowl of lucky charms" quantity="1" />
+		<item name="lime" quantity="1" />
+		<item name="Wint-O-Fresh mint" quantity="476" />
+		<item name="9-ball" quantity="7" />
+		<item name="stuffed cocoabo" quantity="4" />
+	</donation>
+
+    <donation name="efot" pid="985943">
+		<item name="stuffed cocoabo" quantity="3" />
+	</donation>
+
+    <donation name="ejaculator" pid="341707">
+		<item name="jumbo olive" quantity="5" />
+		<item name="Hell ramen" quantity="2" />
+		<item name="bat wing chow mein" quantity="2" />
+		<item name="pr0n chow mein" quantity="2" />
+	</donation>
+
+    <donation name="Elemental_Burn" pid="357793">
+		<item name="phonics down" quantity="20" />
+		<item name="sleeping snowy owl" quantity="6" />
+		<item name="less-than-three-shaped box" quantity="1" />
+		<meat quantity="500000" />
+	</donation>
+
+    <donation name="ErnieQ" pid="842008">
+		<item name="9-ball" quantity="1" />
+		<item name="lavender candy heart" quantity="1" />
+	</donation>
+
+    <donation name="ErnieR" pid="924244">
+		<item name="stuffed angry cow" quantity="1" />
+		<item name="spooky pirate skeleton" quantity="1" />
+		<item name="Happy Birthday Claude cake" quantity="1" />
+	</donation>
+
+    <donation name="Escaflowne" pid="878284">
+    	<item name="1337 7r0uZ0RZ" quantity="1337" />
+		<item name="lime" quantity="1337" />
+		<item name="Rock Pops" quantity="1337" />
+	</donation>
+
+    <donation name="EtzHadaat" pid="673582">
+		<item name="pink candy heart" quantity="1" />
+	</donation>
+
+    <donation name="evaril" pid="1264148">
+		<item name="stuffed cocoabo" quantity="4" />
+		<item name="lime" quantity="8" />
+	</donation>
+
+    <donation name="Eyeball" pid="231135">
+		<item name="Dyspepsi-Cola knapsack" quantity="11" />
+		<item name="can of Red Minotaur" quantity="11" />
+		<item name="pixellated candy heart, pink-frosted astral cupcake" quantity="11" />
+		<item name="scrumptious reagent" quantity="11" />
+		<item name="lime" quantity="11" />
+		<item name="six pack of Mountain Stream" quantity="11" />
+	</donation>
+
+    <donation name="Fanatos" pid="395522">
+		<item name="stuffed cocoabo" quantity="4" />
+	</donation>
+
+    <donation name="Fluffymuffin Cocobutter" pid="355507">
+		<item name="dirty martini" quantity="1" />
+		<item name="ice-cold beer" quantity="888" />
+	</donation>
+
+    <donation name="FrankTheSaucy" pid="430886">
+		<item name="rubber emo roe" quantity="2" />
+		<item name="clown hammer" quantity="1" />
+		<item name="pet rock Snooty disguise" quantity="8" />
+		<item name="joybuzzer" quantity="4" />
+		<item name="bag of airline peanuts" quantity="3" />
+		<item name="explosion-flavored chewing gum" quantity="2" />
+		<item name="fake fake vomit" quantity="1" />
+		<item name="magical ice cube with a fly in it" quantity="4" />
+		<item name="whoopie cushion" quantity="3" />
+		<item name="yellow snowcone" quantity="5" />
+	</donation>
+
+    <donation name="Fronobulax" pid="215957">
+		<item name="lucky Crimbo tiki necklace" quantity="1" />
+	</donation>
+
+    <donation name="FXKun" pid="1324711">
+		<item name="Knob sausage chow mein" quantity="10" />
+	</donation>
+
+    <donation name="G30RG3" pid="466508">
+		<item name="bad penguin egg" quantity="1" />
+	</donation>
+
+    <donation name="Gabkin" pid="549615">
+		<item name="pink candygram" quantity="1" />
+		<item name="brick" quantity="8" />
+	</donation>
+
+    <donation name="GaMeSiNdIaNs" pid="977695">
+    	<item name="gnoll lips" quantity="10" />
+    	<item name="gnoll teeth" quantity="10" />
+    	<item name="spooky mushroom" quantity="25" />
+    	<item name="twinkly powder" quantity="1" />
+    	<item name="bottle of Vangoghbitussin" quantity="1" />
+    	<meat quantity="1000" />
+	</donation>
+
+    <donation name="Gangly1" pid="848579">
+		<item name="stuffed cocoabo" quantity="2" />
+	</donation>
+
+    <donation name="girlina" pid="1258905">
+		<item name="tiny bottle of absinthe" quantity="30" />
+		<item name="1337 7r0uZ0RZ" quantity="1" />
+	</donation>
+
+    <donation name="Goatsegape" pid="865695">
+		<item name="Breathetastic Premium Canned Air" quantity="3" />
+		<item name="astral mushroom" quantity="4" />
+	</donation>
+
+    <donation name="grum" pid="632884">
+		<meat quantity="100000" />
+	</donation>
+
+    <donation name="h0m3r" pid="348412">
+		<item name="Mountain Stream soda" quantity="100" />
+	</donation>
+
+    <donation name="Hojo Hominygrits" pid="196078">
+		<item name="lavender candy heart" quantity="1" />
+	</donation>
+
+    <donation name="HoW" pid="286054">
+		<item name="ten-leaf clover" quantity="10" />
+		<meat quantity="100000" />
+	</donation>
+
+    <donation name="infarct" pid="590246">
+		<item name="pink candy heart" quantity="1" />
+	</donation>
+
+    <donation name="ispeP1982" pid="332837">
+		<item name="ten-leaf clover" quantity="10" />
+		<meat quantity="500000" />
+	</donation>
+
+    <donation name="JekCromium" pid="653298">
+		<item name="wind-up chattering teeth" quantity="1" />
+		<item name="toothsome rock" quantity="1" />
+	</donation>
+
+    <donation name="Jicken Wings" pid="941813">
+		<item name="brick" quantity="1" />
+	</donation>
+
+    <donation name="Julia Adult" pid="632895">
+		<item name="rubber emo roe" quantity="5" />
+	</donation>
+
+    <donation name="Johnny Uppercut" pid="883400">
+		<item name="cast" quantity="1" />
+	</donation>
+
+    <donation name="Kaelestia" pid="1422098">
+		<item name="stuffed cocoabo" quantity="1" />
+	</donation>
+
+    <donation name="Kenrae" pid="540900">
+		<item name="personalized birthday cake" quantity="1" />
+	</donation>
+
+    <donation name="Keripo" pid="368204">
+		<item name="daisy" quantity="11" />
+	</donation>
+
+    <donation name="kickballstar" pid="756236">
+		<item name="lime" quantity="14" />
+	</donation>
+
+    <donation name="Killdog Deathwad" pid="55082">
+		<item name="chef-in-the-box" quantity="10" />
+		<item name="bartender-in-the-box" quantity="10" />
+		<item name="bottle of rum" quantity="100" />
+		<meat quantity="100000" />
+	</donation>
+
+    <donation name="King Texas" pid="168937">
+		<item name="rubber emo roe" quantity="24" />
+		<item name="lime" quantity="100" />
+		<item name="Wint-O-Fresh mint" quantity="929" />
+	</donation>
+
+    <donation name="Krylon" pid="1035981">
+		<item name="lime" quantity="8" />
+		<item name="stuffed cocoabo" quantity="8" />
+	</donation>
+
+    <donation name="LadyDelilah" pid="574062">
+		<item name="lime" quantity="30" />
+	</donation>
+
+    <donation name="LaurDragon" pid="200117">
+		<item name="pink candy heart" quantity="1" />
+	</donation>
+
+    <donation name="Loincloth Boy" pid="999220">
+		<item name="lime" quantity="22" />
+	</donation>
+
+    <donation name="LucySpace" pid="636778">
+		<item name="Happy Birthday Claude cake" quantity="100" />
+		<item name="daisy" quantity="5" />
+	</donation>
+
+    <donation name="Meet Substitute" pid="756351">
+		<item name="stuffed cocoabo" quantity="11" />
+	</donation>
+
+    <donation name="Meezer_Wrangler" pid="760257">
+		<item name="rubber emo roe" quantity="7" />
+		<item name="personalized birthday cake" quantity="1" />
+		<item name="Rock Pops" quantity="300" />
+		<item name="oily mushroom wine" quantity="1" />
+	</donation>
+
+    <donation name="MeowMeowMeow" pid="284969">
+		<item name="stuffed cocoabo" quantity="1" />
+	</donation>
+
+    <donation name="mittensss" pid="639371">
+		<item name="Wint-O-Fresh mint" quantity="6" />
+		<item name="lime" quantity="8" />
+	</donation>
+
+    <donation name="MiNiZ" pid="416135">
+		<item name="Mr. Accessory" quantity="1" />
+	</donation>
+
+    <donation name="Moldar" pid="46441">
+		<item name="Hell ramen" quantity="50" />
+	</donation>
+
+    <donation name="mrmooge88" pid="749545">
+		<item name="stuffed cocoabo" quantity="10" />
+		<meat quantity="60000" />
+	</donation>
+
+    <donation name="MULTIVAC" pid="142800">
+		<item name="off-white paisley oyster egg" quantity="1" />
+	</donation>
+
+    <donation name="NeverNeverMe" pid="624824">
+		<item name="rubber emo roe" quantity="1" />
+		<item name="lime" quantity="11" />
+		<item name="11 Wint-O-Fresh mint" quantity="11" />
+	</donation>
+
+    <donation name="Night Lady" pid="482904">
+		<item name="blue-frosted astral cupcake" quantity="12" />
+		<item name="green-frosted astral cupcake" quantity="12" />
+		<item name="orange-frosted astral cupcake" quantity="12" />
+		<item name="pink-frosted astral cupcake" quantity="12" />
+		<item name="purple-frosted astral cupcake" quantity="12" />
+		<item name="stuffed cocoabo" quantity="4" />
+	</donation>
+
+    <donation name="Noblesse Oblige" pid="594822">
+		<item name="N.O. Beer" quantity="1" />
+		<item name="brick" quantity="91" />
+	</donation>
+
+    <donation name="one12x12" pid="687780">
+		<item name="lime" quantity="11" />
+	</donation>
+
+    <donation name="Pacone" pid="635558">
+		<item name="Knob mushroom" quantity="10" />
+		<item name="knoll mushroom" quantity="10" />
+		<item name="spooky mushroom" quantity="10" />
+		<item name="warm mushroom" quantity="1" />
+		<item name="cool mushroom" quantity="1" />
+		<item name="pointy mushroom" quantity="1" />
+		<item name="flaming mushroom" quantity="1" />
+		<item name="frozen mushroom" quantity="1" />
+		<item name="stinky mushroom" quantity="1" />
+		<item name="wind-up chattering teeth" quantity="1" />
+	</donation>
+
+    <donation name="Papa Zito" pid="24912">
+		<item name="ice-cold beer" quantity="1000" />
+		<item name="can of Red Minotaur" quantity="1" />
+		<item name="Triple-Minty Gum" quantity="1" />
+	</donation>
+
+    <donation name="Pastian" pid="447189">
+		<item name="lime" quantity="23" />
+		<item name="stuffed cocoabo" quantity="6" />
+	</donation>
+
+    <donation name="PolkaHantus" pid="392946">
+		<item name="Happy Birthday Claude cake" quantity="1" />
+	</donation>
+
+    <donation name="PoochyEXE V2" pid="541801">
+		<item name="anniversary balloon" quantity="1" />
+		<item name="personalized birthday cake" quantity="1" />
+		<meat quantity="1000000" />
+	</donation>
+
+    <donation name="Poofypantcat" pid="1289872">
+		<item name="stuffed cocoabo" quantity="3" />
+	</donation>
+
+    <donation name="Presto Ragu" pid="77470">
+		<item name="Lucky surprise egg" quantity="61" />
+		<item name="scrumptious reagent" quantity="500" />
+		<meat quantity="1100000" />
+	</donation>
+
+    <donation name="Prima Vera Angelhair" pid="114394">
+		<item name="stuffed cocoabo" quantity="19" />
+	</donation>
+
+    <donation name="princessbitchykitty" pid="1306707">
+		<item name="Frat Boy FGF" quantity="10" />
+		<item name="Hippy Army MPE" quantity="10" />
+	</donation>
+
+    <donation name="PsychoDad262" pid="252907">
+		<item name="crazy little Turkish delight" quantity="11" />
+		<item name="piece of wedding cake" quantity="11" />
+		<item name="Wint-O-Fresh mint" quantity="11" />
+	</donation>
+
+    <donation name="PsychoDog" pid="317078">
+		<item name="lucky rabbit's foot" quantity="3" />
+	</donation>
+
+    <donation name="Puttan Esca" pid="818282">
+		<item name="lime" quantity="2" />
+	</donation>
+
+    <donation name="raorn" pid="1274608">
+		<item name="lavender candy heart" quantity="1" />
+	</donation>
+
+    <donation name="Raph Fury" pid="333920">
+		<item name="Mr. Accessory" quantity="1" />
+	</donation>
+
+    <donation name="raney53" pid="197024">
+		<item name="tiny plastic sword" quantity="1" />
+	</donation>
+
+    <donation name="raynstorm" pid="270137">
+		<item name="personalized birthday cake" quantity="1" />
+		<item name="11 hot hi mein" quantity="11" />
+		<meat quantity="300000" />
+	</donation>
+
+    <donation name="rickerscott" pid="99232">
+		<item name="potion of temporary gr8tness" quantity="1" />
+		<meat quantity="1000000" />
+	</donation>
+
+    <donation name="Rufus McGee" pid="1261102">
+		<item name="stuffed cocoabo" quantity="2" />
+	</donation>
+
+    <donation name="ruGERFan" pid="572111">
+		<item name="stuffed cocoabo" quantity="3" />
+	</donation>
+
+    <donation name="RunninSausages" pid="299459">
+		<item name="lime" quantity="11" />
+	</donation>
+
+    <donation name="Sadako" pid="160240">
+		<item name="teddy bear" quantity="1" />
+		<item name="Wint-O-Fresh mint" quantity="487" />
+	</donation>
+
+    <donation name="salvo" pid="332129">
+		<item name="green candy heart" quantity="1" />
+	</donation>
+
+    <donation name="Saturday Night Thiever" pid="885569">
+		<item name="stuffed cocoabo" quantity="2" />
+	</donation>
+
+    <donation name="Sealix" pid="261914">
+		<item name="knob sausage chow-mein" quantity="2" />
+	</donation>
+
+    <donation name="SentiuS" pid="304345">
+		<item name="clockwork maid" quantity="1" />
+		<item name="extra-spicy bloody mary" quantity="100" />
+		<item name="rockin' wagon" quantity="100" />
+		<item name="horizontal tango" quantity="100" />
+		<item name="fuzzbump" quantity="100" />
+	</donation>
+
+    <donation name="shaggy100" pid="504492">
+		<item name="stuffed cocoabo" quantity="3" />
+	</donation>
+
+    <donation name="Shirosaki" pid="840415">
+		<item name="9-ball" quantity="2" />
+		<item name="hyperbolic plasma focuser" quantity="52" />
+    	<item name="lime" quantity="12" />
+    	<meat quantity="5000" />
+	</donation>
+
+    <donation name="shortytss" pid="373096">
+		<item name="Dyspepsi-Cola knapsack" quantity="200" />
+	</donation>
+
+    <donation name="shoymaria" pid="785563">
+		<item name="lime" quantity="39" />
+		<meat quantity="5000" />
+	</donation>
+
+    <donation name="Shyan" pid="1054093">
+		<item name="banana cream pie" quantity="1" />
+		<item name="dusty bottle of Merlot" quantity="2" />
+		<item name="stuffed cocoabo" quantity="2" />
+	</donation>
+
+    <donation name="Sir Cheddar" pid="723598">
+		<item name="lime" quantity="50" />
+		<item name="stuffed cocoabo" quantity="1" />
+	</donation>
+
+    <donation name="sizzler" pid="127428">
+		<item name="personalized birthday cake" quantity="1" />
+	</donation>
+
+    <donation name="Smite_O_Rama" pid="80285">
+		<item name="ice-cold beer" quantity="200" />
+	</donation>
+
+    <donation name="Snappy the Slow" pid="247103">
+		<item name="Hell ramen" quantity="1" />
+		<item name="rat appendix chow mein" quantity="1" />
+		<item name="roll in the hay" quantity="1" />
+		<item name="star" quantity="140" />
+		<item name="line" quantity="32" />
+		<item name="star chart" quantity="9" />
+	</donation>
+
+    <donation name="snooty" pid="818392">
+		<item name="bloody mary" quantity="1" />
+		<item name="lime" quantity="4" />
+		<item name="tequila with training wheels" quantity="4" />
+		<item name="prussian cathouse" quantity="5" />
+		<item name="Mon Tiki" quantity="5" />
+		<item name="astral mushroom" quantity="5" />
+	</donation>
+
+    <donation name="sods" pid="287549">
+		<item name="Knob sausage chow mein" quantity="3" />
+	</donation>
+
+    <donation name="somoya" pid="695056">
+		<item name="stuffed cocoabo" quantity="15" />
+	</donation>
+
+    <donation name="spunky1" pid="307735">
+		<item name="sleazy hi mein" quantity="20" />
+		<item name="grog" quantity="20" />
+	</donation>
+
+    <donation name="SqueezeBoxQueen" pid="760554">
+		<item name="Wint-O-Fresh mint" quantity="54" />
+		<item name="Rock Pops" quantity="267" />
+	</donation>
+
+    <donation name="stanley" pid="800295">
+		<meat quantity="1000000" />
+	</donation>
+
+    <donation name="stannius" pid="364557">
+		<item name="green candy heart" quantity="1" />
+	</donation>
+
+    <donation name="StarSpiritGeno" pid="772216">
+		<item name="disassembled clover" quantity="3" />
+		<item name="scroll of ancient forbidden unspeakable evil" quantity="2" />
+		<item name="Spam Witch sandwich" quantity="521" />
+		<meat quantity="20000" />
+	</donation>
+
+    <donation name="Stonehelm" pid="681243">
+		<item name="Mr. Accessory" quantity="1" />
+	</donation>
+
+    <donation name="sunn0" pid="1190036">
+    	<item name="lime" quantity="9" />
+		<item name="stuffed cocoabo" quantity="8" />
+	</donation>
+
+    <donation name="Teffania" pid="524243">
+		<item name="Amulet of Yendor" quantity="2" />
+		<item name="wind-up chattering teeth" quantity="1" />
+		<item name="defective skull" quantity="1" />
+		<item name="lime" quantity="2" />
+		<item name="Wint-O-Fresh mint" quantity="1" />
+		<item name="Rock Pops" quantity="1" />
+	</donation>
+
+    <donation name="TheBastageBob" pid="998601">
+		<item name="stuffed cocoabo" quantity="26" />
+	</donation>
+
+    <donation name="The Devirginizer" pid="1020908">
+		<item name="Mr. Accessory" quantity="1" />
+	</donation>
+
+    <donation name="Theophrastus" pid="45765">
+		<item name="pink candy heart" quantity="1" />
+		<item name="orange candy heart" quantity="1" />
+	</donation>
+
+    <donation name="Thriller" pid="773862">
+		<item name="knob sausage stir-fry" quantity="60" />
+		<item name="hell ramen" quantity="51" />
+		<item name="sausage pizza" quantity="30" />
+		<meat quantity="750000" />
+	</donation>
+
+    <donation name="thunkles" pid="257788">
+		<item name="tome of snowcone summoning" quantity="1" />
+	</donation>
+
+    <donation name="toast slinger" pid="451065">
+		<item name="ten-leaf clover" quantity="100" />
+	</donation>
+
+    <donation name="Tomato Bob" pid="807626">
+		<item name="astral mushroom" quantity="5" />
+	</donation>
+
+    <donation name="ToneDeafBawb" pid="664157">
+		<item name="orange snowcone" quantity="10" />
+		<item name="red snowcone" quantity="10" />
+		<item name="green snowcone" quantity="10" />
+		<item name="blue snowcone" quantity="10" />
+		<item name="purple snowcone" quantity="10" />
+	</donation>
+
+    <donation name="Trubob" pid="352836">
+		<item name="bag of Cheat-Os" quantity="1" />
+	</donation>
+
+    <donation name="Turbotella" pid="975938">
+		<meat quantity="150000" />
+	</donation>
+
+    <donation name="UGZ_Log" pid="147128">
+		<item name="annoying pitchforks" quantity="11" />
+		<item name="portable corkscrew" quantity="1" />
+		<item name="Knob sausage chow mein" quantity="2" />
+		<item name="bat wing chow mein" quantity="2" />
+		<item name="rat appendix chow mein" quantity="2" />
+		<item name="Knob sausage stir-fry" quantity="1" />
+		<item name="tofu chow mein" quantity="1" />
+		<item name="pr0n chow mein" quantity="2" />
+	</donation>
+
+    <donation name="Unca Jim" pid="845993">
+		<item name="Wint-O-Fresh mint" quantity="1" />
+		<item name="Valentine" quantity="1" />
+	</donation>
+
+    <donation name="unsane" pid="259655">
+		<item name="spectral pickle" quantity="3" />
+		<item name="mafia aria" quantity="3" />
+		<item name="Ent cider" quantity="3" />
+		<item name="roll in the hay" quantity="25" />
+	</donation>
+
+    <donation name="Veracity" pid="121572">
+		<item name="lime" quantity="1041" />
+	</donation>
+
+    <donation name="Vike" pid="40551">
+		<item name="box of sunshine" quantity="???" />
+	</donation>
+
+    <donation name="virnomine" pid="126233">
+		<item name="ice-cold beer" quantity="1000" />
+		<item name="dead guy's watch" quantity="1" />
+		<item name="mullet wig" quantity="250" />
+		<item name="Warm Subject gift certificate" quantity="50" />
+		<meat quantity="1000000" />
+	</donation>
+
+    <donation name="Vorthox" pid="670455">
+		<item name="personalized birthday cake" quantity="1" />
+	</donation>
+
+    <donation name="WakeNbake" pid="792270">
+		<item name="stuffed cocoabo" quantity="11" />
+	</donation>
+
+    <donation name="Wargolem" pid="220017">
+		<item name="white candygram" quantity="1" />
+	</donation>
+
+    <donation name="WelcomeToEarth" pid="596321">
+		<item name="Knob sausage chow mein" quantity="4" />
+		<item name="astral mushroom" quantity="6" />
+		<item name="a little sump'n sump'n" quantity="5" />
+	</donation>
+
+    <donation name="Wyrd" pid="27622">
+		<item name="stuffed cocoabo" quantity="13" />
+	</donation>
+
+    <donation name="Y0U" pid="1188960">
+		<item name="stuffed cocoabo" quantity="2" />
+	</donation>
+
+    <donation name="Zaranthos" pid="355463">
+		<item name="silk garter snake" quantity="1" />
+		<meat quantity="1500000" />
+	</donation>
+
+    <donation name="Zeitgeist" pid="160121">
+		<item name="personalized birthday cake" quantity="1" />
+		<item name="Breathetastic Premium Canned Air" quantity="3" />
+	</donation>
+
+    <donation name="zeroToNine" pid="291636">
+		<item name="Rock Pops" quantity="20" />
+		<item name="can of Binarrca" quantity="1" />
+		<item name="jazz soap" quantity="20" />
+		<item name="lime" quantity="20" />
+		<item name="ram stick" quantity="1" />
+		<item name="Mountain Stream soda" quantity="20" />
+		<item name="pet rock" quantity="1" />
+		<item name="crazy little Turkish delight" quantity="20" />
+	</donation>
+
+    <donation name="Zypez" pid="451613">
+		<item name="Happy Birthday Claude cake" quantity="1" />
+		<item name="personalized birthday cake" quantity="1" />
+	</donation>
+
+</donation-list>

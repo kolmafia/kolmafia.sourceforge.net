@@ -1,0 +1,379 @@
+<html><head>
+<title>Quotes from the Chat Pane Helper</title>
+
+<style>
+	.title { color: white }
+</style>
+
+</head>
+
+<body bgcolor="#eeeeff"><center><table width=60% cellpadding=0 cellspacing=0>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+<tr><td colspan=3 align=center><h2>Quotes from the Chat Pane Helper</h2></td></tr>
+<tr><td colspan=3 align=center><i>Last Updated on April 7, 2007 @ 3:05 PDT</i></td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+<tr><td colspan=3>
+	Paste whatever you want to quote from chat into the first box (except for gothy or /haiku, because this has no idea
+	how to handle/detect that).  Then click the "DO IT!  DO IT NOW!" button and the helper will automatically generate
+	all the php bulletin board forum tags needed to render the chat in all of its colorified glory and put all that into
+	the second box.  That's it!  Time to quote out of context!
+</td></tr>
+
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+<tr><td class="title" align=center bgcolor=black><b>This is the First Box - Paste to Here</b></td>
+
+<td rowspan=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td rowspan=5 align=center valign=top>
+
+<input type="button" value="DO IT!  DO IT NOW!" onClick="convertToForumTags(); return true;">
+
+<br><br>Current Channel<br>
+
+<select id="channel">
+	<option value=newbie>newbie</option>
+	<option value=normal>normal</option>
+	<option value=trade>trade</option>
+	<option value=clan selected>clan</option>
+	<option value=games>games</option>
+	<option value=radio>radio</option>
+	<option value=pvp>pvp</option>
+	<option value=foodcourt>foodcourt</option>
+	<option value=veteran>veteran</option>
+	<option value=valhalla>valhalla</option>
+	<option value=hardcore>hardcore</option>
+	<option value=villa>villa</option>
+	<option value=lounge>lounge</option>
+	<option value=harem>harem</option>
+	<option value=dev>dev</option>
+</select>
+
+<br><br>Filter Channel<br>
+
+<select id="filters">
+	<option value=all selected>show it all</option>
+	<option value=newbie>only newbie</option>
+	<option value=normal>only normal</option>
+	<option value=trade>only trade</option>
+	<option value=clan>only clan</option>
+	<option value=games>only games</option>
+	<option value=radio>only radio</option>
+	<option value=pvp>only pvp</option>
+	<option value=foodcourt>only foodcourt</option>
+	<option value=veteran>only veteran</option>
+	<option value=valhalla>only valhalla</option>
+	<option value=hardcore>only hardcore</option>
+	<option value=villa>only villa</option>
+	<option value=lounge>only lounge</option>
+	<option value=harem>only harem</option>
+	<option value=dev>only dev</option>
+</select>
+
+
+<br><br>Your Name<br>
+<input type="text" id="yourname" value="">
+
+<br><br>Your Color<br>
+
+<select id="yourcolor">
+	<option value=darkred>dark red</option>
+	<option value=red>red</option>
+	<option value=orange>orange</option>
+	<option value=brown>brown</option>
+	<option value=green>green</option>
+	<option value=olive>olive</option>
+	<option value=blue>blue</option>
+	<option value=darkblue selected>darkblue</option>
+	<option value=indigo>indigo</option>
+	<option value=violet>violet</option>
+	<option value=black>black</option>
+</select>
+
+<br><br>Their Color<br>
+
+<select id="namecolor">
+	<option value=darkred>dark red</option>
+	<option value=red>red</option>
+	<option value=orange>orange</option>
+	<option value=brown>brown</option>
+	<option value=green>green</option>
+	<option value=olive>olive</option>
+	<option value=blue>blue</option>
+	<option value=darkblue>darkblue</option>
+	<option value=indigo>indigo</option>
+	<option value=violet>violet</option>
+	<option value=black selected>black</option>
+</select>
+
+<br><br>Clan Channel Tag<br>
+
+<select id="clancolor">
+	<option value=darkred>dark red</option>
+	<option value=red>red</option>
+	<option value=orange selected>orange</option>
+	<option value=brown>brown</option>
+	<option value=green>green</option>
+	<option value=olive>olive</option>
+	<option value=blue>blue</option>
+	<option value=darkblue>darkblue</option>
+	<option value=indigo>indigo</option>
+	<option value=violet>violet</option>
+	<option value=black>black</option>
+</select>
+
+<br><br>Other Channel Tags<br>
+
+<select id="othercolor">
+	<option value=darkred>dark red</option>
+	<option value=red>red</option>
+	<option value=orange>orange</option>
+	<option value=brown>brown</option>
+	<option value=green selected>green</option>
+	<option value=olive>olive</option>
+	<option value=blue>blue</option>
+	<option value=darkblue>darkblue</option>
+	<option value=indigo>indigo</option>
+	<option value=violet>violet</option>
+	<option value=black>black</option>
+</select>
+
+</td></tr>
+
+<tr><td>
+	<textarea id="plaintext" cols=72 rows=10>[clan] holatuwol: Your chat text here!</textarea>
+</td></tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr><td class="title" align=center bgcolor=black><b>This is the Second Box - Copy from Here</b></td><td>&nbsp;</td></tr>
+<tr><td>
+	<textarea id="forumtags" cols=72 rows=10></textarea>
+</td></tr><tr><td>&nbsp;</td></tr>
+
+</table></center>
+
+<script language="Javascript">
+
+function applyChatEffect( line, word )
+{
+	var lastIndex = line.lastIndexOf( word );
+	if ( lastIndex != line.length - word.length )
+		return line;
+
+	return line.substring( 0, lastIndex ) + "[i]" + word + "[/i]";
+}
+
+function applyGothyEffect( line )
+{
+	line = applyChatEffect( line, "agony" );
+	line = applyChatEffect( line, "anguish" );
+	line = applyChatEffect( line, "blackness" );
+	line = applyChatEffect( line, "despair" );
+	line = applyChatEffect( line, "fear" );
+	line = applyChatEffect( line, "gloom" );
+	line = applyChatEffect( line, "heart" );
+	line = applyChatEffect( line, "loneliness" );
+	line = applyChatEffect( line, "miasma" );
+	line = applyChatEffect( line, "rain" );
+	line = applyChatEffect( line, "soul" );
+	line = applyChatEffect( line, "torment" );
+
+	return line;
+}
+
+function convertToForumTags()
+{
+	var filter = "[" + document.getElementById( "filters" ).value + "][/color]";
+	var lines = document.getElementById( "plaintext" ).value.split( "\n" );
+
+	var forumtags = document.getElementById( "forumtags" );
+	forumtags.value = "";
+
+	for ( var i = 0; i < lines.length; ++i )
+		if ( lines[i] )
+			lines[i] = lines[i].replace( /^\s+|\s+$/, "" );
+
+	for ( var i = 0; i < lines.length; ++i )
+	{
+		if ( !lines[i] )
+			continue;
+
+		if ( lines[i].indexOf( "Players in " ) != -1 && lines[i].indexOf( "channel" ) != -1 )
+		{
+			forumtags.value += "[color=green]" + lines[i] + "[/color]\n";
+			forumtags.value += "[color=green]" + lines[++i] + "[/color]\n";
+		}
+		else if ( lines[i].indexOf( " (#" ) != -1 && lines[i].indexOf( "), the" ) != -1 )
+		{
+			forumtags.value += "[color=green]" + lines[i] + "[/color]\n";
+			if ( lines.length > i + 2 && lines[i+1].indexOf( "This player" ) != -1 )
+				forumtags.value += "[color=green]" + lines[++i] + "[/color]\n";
+		}
+		else if ( lines[i].indexOf( "Your status" ) == 0 )
+		{
+			forumtags.value += "[color=green]" + lines[i] + "[/color]\n";
+			forumtags.value += "[color=green]" + lines[++i] + "[/color]\n";
+			forumtags.value += "[color=green]" + lines[++i] + "[/color]\n";
+		}
+		else if ( lines[i].lastIndexOf( ":" ) == lines[i].length - 1 )
+		{
+			forumtags.value += applyGothyEffect( processChatLine( lines[i++] ) ) + "\n";
+			var hasChatEffect = false;
+
+			do
+			{
+				var line = applyGothyEffect( lines[i] );
+				hasChatEffect = lines[i++] != line;
+
+				if ( hasChatEffect )
+					forumtags.value += line + "\n";
+			}
+			while ( hasChatEffect && i < lines.length );
+
+			// Decrement once after exiting the loop and
+			// decrement again otherwise.
+
+			--i;  if ( !hasChatEffect ) --i;
+		}
+		else
+		{
+			var line = processChatLine( lines[i] ) + "\n";
+			if ( filter == "[all][/color]" || line.indexOf( filter ) != -1 )
+				forumtags.value += line;
+		}
+	}
+}
+
+function processChatLine( line )
+{
+	var prettyline = line;
+	var separator0 = prettyline.indexOf( "[" );
+	var separator1 = prettyline.indexOf( "]" );
+
+	var timestamp = "";
+	if ( separator0 == 0 && separator1 > 0 )
+	{
+		var colonIndex = prettyline.indexOf( ":" );
+		if ( colonIndex > 0 && colonIndex < separator1 )
+		{
+			timestamp = prettyline.substring( 0, separator1 + 1 );
+			prettyline = prettyline.substring( separator1 + 2 );
+			separator0 = prettyline.indexOf( "[" );
+			separator1 = prettyline.indexOf( "]" );
+		}
+	}
+
+	var isPrivateMessage = prettyline.indexOf( "private to" ) == 0 ||
+		(prettyline.indexOf( "(private)" ) != -1 && prettyline.indexOf( "(private)" ) < prettyline.indexOf( ":" ));
+
+	var hasFriendMessage = prettyline.indexOf( "logged on." ) != -1 || prettyline.indexOf( "logged off." ) != -1 ||
+		prettyline.indexOf( "has given you a box of sunshine." ) != -1 || prettyline.indexOf( "has played" ) != -1 ||
+		prettyline.indexOf( "has littered toilet paper" ) != -1 || prettyline.indexOf( "with a brick." ) != -1 ||
+		prettyline.indexOf( "has hit you in the face with a cream pie" ) != -1 || prettyline.indexOf( "have been attacked by" ) != -1;
+
+	// If you don't see a separator, check to see if it's
+	// a standard green notification message.
+
+	if ( separator0 != 0 )
+	{
+		if ( !isPrivateMessage && !hasFriendMessage && prettyline.indexOf( "New message" ) != 0 )
+		{
+			var channel = document.getElementById( "channel" ).value;
+			prettyline = "[" + channel + "] " + prettyline;
+			separator1 = 1 + channel.length;
+		}
+	}
+
+	// Decide the bold and italics tags that are needed
+	// for the chat.  If it's a notification message,
+	// then display it in green.
+
+	if ( isPrivateMessage )
+	{
+		var colonIndex = prettyline.indexOf( ":" );
+		prettyline = "[color=blue][b]" + prettyline.substring( 0, colonIndex ) + "[/b]" +
+			prettyline.substring( colonIndex ) + "[/color]";
+	}
+	else if ( separator1 == -1 )
+	{
+		prettyline = "[color=green]" + prettyline + "[/color]";
+	}
+	else if ( prettyline.indexOf( ":" ) == -1 )
+	{
+		separator1 += 2;
+		prettyline = prettyline.substring( 0, separator1 ) + "[i]" + prettyline.substring( separator1 )  + "[/i]";
+	}
+	else
+	{
+		var separator2 = prettyline.indexOf( ":" );
+
+		if ( separator1 == -1 || separator1 > separator2 )
+			separator1 = 0;
+		else
+			separator1 += 2;
+
+		var name = prettyline.substring( separator1, separator2 );
+		var color = document.getElementById( "namecolor" ).value;
+
+		if ( name == "Jick" )
+			color = "violet";
+		else if ( name == document.getElementById( "yourname" ).value )
+			color = document.getElementById( "yourcolor" ).value;
+
+		prettyline = prettyline.substring( 0, separator1 ) + "[color=" + color +
+			"][b]" + name + "[/b][/color]" + prettyline.substring( separator2 );
+	}
+
+	// Decide the color based on the current channel
+	// which is being rendered.
+
+	if ( !isPrivateMessage )
+	{
+		prettyline = prettyline.replace( /(\[\w\w+\])/,
+			"[color=" + document.getElementById( "othercolor" ).value + "]$1[/color]" );
+
+		prettyline = prettyline.replace( /\[color=\w+\](\[clan\])\[\/color\]/,
+			"[color=" + document.getElementById( "clancolor" ).value + "]$1[/color]" );
+	}
+
+	// Now remove color from any links that were added
+	// by accident, if applicable.
+
+	prettyline = prettyline.replace( /\[color=\w+\](\[link\])\[\/color\]/, "$1" );
+
+	// Now change all mod warnings to red that were added
+	// in a different color
+
+	if ( prettyline.indexOf( "[b]Mod Warning[/b]" ) != -1 )
+		prettyline = prettyline.replace( /\[color=\w+\]\[b\]Mod Warning\[\/b\]\[\/color\]/, "[color=red][b]Mod Warning[/b]" ) + "[/color]";
+
+	if ( prettyline.indexOf( "[b]System Message[/b]" ) != -1 )
+		prettyline = prettyline.replace( /\[color=\w+\]\[b\]System Message\[\/b\]\[\/color\]/, "[color=red][b]System Message[/b]" ) + "[/color]";
+
+	// Finally, convert any URLs to actual clickable links
+
+	var linkIndex = prettyline.indexOf( "[link]" );
+	if ( linkIndex != -1 )
+	{
+		var part1 = prettyline.substring( 0, linkIndex );
+		var url = prettyline.substring( linkIndex + 6 ).replace( / /g, "" );
+		prettyline = part1 + "[url=" + url + "][link][/url] " + url;
+	}
+
+	// Finally, maybe you can italicize ~jazz hands~ so
+	// go ahead and do so.
+
+	prettyline = applyChatEffect( prettyline, "~jazz hands~" );
+	prettyline = applyChatEffect( prettyline, "No, really." );
+	prettyline = applyChatEffect( prettyline, "Seriously." );
+	prettyline = applyChatEffect( prettyline, "Trust Me." );
+	prettyline = applyChatEffect( prettyline, "Yeah, that's the ticket." );
+	return prettyline;
+}
+
+</script>
+
+</body></html>

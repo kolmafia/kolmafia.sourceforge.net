@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+  <style type="text/css">/* <![CDATA[ */  @import "css/tigris.css";  @import "css/inst.css";  /*  ]]> */ </style>
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>KoLmafia: Statement of User Needs</title>
+</head>
+
+<body>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=126572&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+ <h2>Statement of User Needs</h2>
+
+<div class="app">
+
+ <h3>Project Information</h3>
+ <div class="axial">
+ <table>
+  <tr>
+   <th>Project:</th>
+   <td>KoLmafia</td>
+  </tr>
+  <tr>
+   <th>Related Documents:</th>
+   <td>
+    <div><a href="proposal.html">Project proposal</a></div>
+    <div><a href="target-and-benefits.html">Target audience and benefits</a></div>
+   </td>
+  </tr>
+ </table>
+ </div>
+
+ <p class="readonly"><strong>Process impact:</strong> The statement of user needs documents and explains the actual desires of stakeholders in roughly their own words.  What they <i>desire</i> is never exactly what the product <i>provides</i>.  <em style="display:none">Documenting user needs here, independently from the <a href="srs.html">SRS</a>, helps to keep the SRS precise and makes the tasks of verification and validation more effective.</em>  This document is <em>not</em> an informal draft of the SRS; it is different document with a complementary purpose.
+ </p>
+
+
+ <h3>Agreed Goals</h3>
+
+ <p>The goal of this project is to create a cross-platform desktop tool, written in Java (J2SE 1.5 compliant), which interfaces with the online adventure game, Kingdom of Loathing.  The project intends to provide all the user-friendliness of the <a href="http://kolmelion.sourceforge.net/">KoLmelion</a> graphical user interface while giving <a href="http://www.subjunctive.net/kol/kolcli.html">KoL CLI</a> and other command-line users the scripting flexibility to which they have grown accustomed.</p>
+
+ <h3>Environment</h3>
+
+ <dl>
+
+  <dt>What is the system's business environment?</dt>
+
+  <dd>As noted in the <a href="target-and-benefits.html">target market and benefits</a> document, <i>KoLmafia</i> is directed toward players who would benefit from task automation.  Such players often have busy schedules in real life, but enjoy giving back to the community as they wait for newer features of <a href="http://www.kingdomofloathing.com/">Kingdom of Loathing</a> to be released.  Others would like to see their characters develop with a little less effort on their part and would appreciate the option to "manage" their character rather than "be" their character.</dd>
+
+  <dt>What is the system's physical environment?</dt>
+
+  <dd>This application runs on modern desktop computers.  The users of the system are typically at a home computer.</dd>
+
+  <dt>What is the system's technology environment (hardware and software)?</dt>
+
+  <dd>As of October 2004, 61% of computer users connected to the internet have display resolutions of 1024x768 or higher, 34% have display resolutions of 800x600, and 5% have lower or unknown resolutions (<a href="http://www.w3schools.com/browsers/browsers_stats.asp">w3schools'
+  Browser Statistics</a>).</dd>
+
+  <dd>Most modern operating systems and web browsers come equipped with the Java virtual machine.  If the user does not have the Java virtual machine installed on their system, it is freely available from <a href="http://java.sun.com/getjava/">Sun Microsystems</a>.</dd>
+
+ </dl>
+
+ <h3>Stakeholders / Actors</h3>
+
+ <dl>
+
+  <a name="owner_devteam"></a>
+  <dt>Development Team</dt>
+
+  <dd>The  development team wants a well-documented system that is easy to maintain in light of the fact that Kingdom of Loathing is still growing and developing and likely to experience radical changes in the blink of an eye.  The development team also wants an extensible solution so that new features can be easily added to the project without needlessly wasting time worrying about regression test issues.  The development team also wants the freedom to grow, so the project must be able to reach out to as many potential developers as possible.
+
+   <p>Key needs:</p>
+   <ol>
+	<li>Program must be open source.</li>
+	<li>Program must be cross-platform.</li>
+	<li>Program must be well-modularized.</li>
+   </ol>
+
+  </dd>
+
+  <a name="player"></a>
+  <dt>Player</dt>
+
+  <dd>Players want a clean interface that makes their most common (and monotonous) tasks easy to accomplish. Players also want to see the results of their actions, rather than having to log into the system in order to see these changes.  Players also want a way to communicate with other players and record these conversations for future reference.
+
+   <p>Key needs:</p>
+   <ol>
+    <li>Program must provide support for the KoLchat interface.</li>
+    <li>Program must provide support for the most common tasks.</li>
+    <li>Program must provide a summary of the results of all client activity.</li>
+   </ol>
+  </dd>
+
+  <a name="administrator"></a>
+  <dt>Administrator (Jick)</dt>
+
+  <dd>The administrator wants to have control of what happens on their system and with their bandwidth.  The administrator, therefore, wants a program that is not resource intensive and makes requests that are roughly the equivalent of a normal user browsing the site.  If the program's usage becomes a problem, the administrator would like a way to cleanly disable the program from interfacing with the site.
+
+   <p>Key needs:</p>
+   <ol>
+    <li>Program must be easily identified.</li>
+    <li>Program must minimize HTTP requests.</li>
+   </ol>
+  </dd>
+
+ </dl>
+
+</div>
+
+<div class="footnote">Copyright &#169; 2003 Jason Robbins.  All rights reserved. <a href="readyset-license.html">License terms</a>.  Retain this copyright statement whenever this file is used as a template.</div>
+
+</body>
+</html>

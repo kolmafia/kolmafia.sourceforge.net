@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+  <style type="text/css">/* <![CDATA[ */  @import "css/tigris.css";  @import "css/inst.css";  /*  ]]> */ </style>
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>KoLmafia: Basic Scripting</title>
+</head>
+
+<body>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=126572&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+<div class="app"><h3>Basic Scripting</h3>
+
+ <dl><dd>
+ <nobr><a href="#intro">Introduction</a>,</nobr>
+ <nobr><a href="#access">Accessing the CLI</a>,</nobr>
+ <nobr><a href="#items">Basic Item Management</a>,</nobr>
+ <nobr><a href="#conditions">Conditions and Objectives</a>,</nobr>
+ <nobr><a href="#moods">CLI Mood Management</a>,</nobr>
+ <nobr><a href="#items2">Other Item Management</a>,</nobr>
+ <nobr><a href="#gear">Gear Management</a>,</nobr>
+ <nobr><a href="#actions">Basic Activities</a>,</nobr>
+ <nobr><a href="#tools">Tool-Related Activities</a>,</nobr>
+ <nobr><a href="#quests">Built-In Quests</a>,</nobr>
+ <nobr><a href="#frames">User Interface Loading</a>,</nobr>
+ <nobr><a href="#scripts">Script Commands</a>,</nobr>
+ <nobr><a href="#data">Data Management</a>,</nobr>
+ <nobr><a href="#misc">Uncategorized Commands</a>,</nobr>
+ <nobr><a href="#branching">Flow Control</a></nobr>
+ </dd></dl>
+
+ <a name="intro"></a>
+ <h3>Introduction</h3>
+
+  <dl><dd>For those without any programming knowledge, what happens is best explained as follows: if you're a fast typist, or if you don't like using a mouse a lot, and you'd like a way to access functionality by tell KoLmafia what you want it to do via typing, the "KoLmafia Command-Line Interface" or "KoLmafia CLI" was designed to address this concern.  Also, if you have a tendency to do the exact same things over and over again, scripting was designed to allow you to condense all those actions into one mouse click (or one typed command).</dd></dl>
+
+  <dl><dd>For those with some programming knowledge, what happens is best explained as follows: you are working from within a "shell" environment created by the KoLmafia system.  This shell environment provides access to a variety of KoLmafia's features.  You access these features by typing "commands" and their "parameters" which are documented within this manual; sequences of these commands can be stored in "scripts" which represent atomic units of execution.  Because these commands strongly resemble shell scripts in other systems, KoLmafia's scripting system was named the "KoLmafia Command-Line Interface" or "KoLmafia CLI".</dd></dl>
+
+ <a name="access"></a>
+ <h3>Accessing the CLI</h3>
+
+  <dl><dd>The graphical user interface possesses the ability to access KoLmafia CLI.  This can be achieved through the "Graphical CLI" option available through the "General" menu.  In addition to this, all scripts placed in the "scripts" directory where KoLmafia is located will be listed in the "Scripts" menu in KoLmafia's graphical user interface.  For users who do not wish to take advantage of this feature, the graphical user interface also permits users to call scripts from any arbitrary location by selecting the "Load script" option in the "Scripts" menu.</dd></dl>
+
+  <dl><dd>For those who are programmer-types, a more familiar way to access the command-line interface is directly through a terminal; Windows users may know this as "Command Prompt" and other platforms will probably know it simply as "Terminal".  Please note that you MUST use the JAR file if you wish to access KoLmafia's command-line functionality through your terminal, and you should use the following command, where the "~/kolmafia" is replaced with where you've stored the KoLmafia JAR file, to ensure that it reliably loads your user settings:</dd></dl>
+
+  <dl><dd><blockquote><pre>java -jar -Djava.awt.headless=true -Duser.dir=~/kolmafia -Duser.home=~/kolmafia ~/kolmafia/KoLmafia.jar --CLI</pre></blockquote></dd></dl>
+
+  <dl><dd>The following sections document all the commands which are available to KoLmafia CLI and consequently also available to KoLmafia's scripting engine.  If you're a programmer and would like to go even further and write advanced scripts with real programming constructs, you might be interested in KoLmafia's Advanced Script Handler (KoLmafia ASH), which is documented in more detail <a href="advanced.html">here</a>.</dd></dl>
+
+ <a name="items"></a>
+ <h3>Basic Item Management</h3>
+
+ <dl><dd>The following section of the manual outlines the basic item management commands which you are likely to use.</dd>
+
+   <dd><code>acquire [#] &lt;itemname></code>
+   <br><code>(acquire 5 insanely spicy enchanted bean burrito)</code>
+   <dl><dd>Attempts to acquire the specified number of the specified item by any means possible.  If there are already enough items in your inventory, this command does absolutely nothing.  Note that this command is implicitly used internally in order to get any items KoLmafia believes it needs, subject to preferences.  This is the order in which KoLmafia searches for the item:
+   <ol><li>look in your inventory</li>
+   <li>unequip the item, if it's equipped</li>
+   <li>check inside of your closet</li>
+   <li>item creation, if ingredients are available</li>
+   <li>check the hermit, if you have a worthless item</li>
+   <li>pull from storage, if you're out of Ronin</li>
+   <li>retrieve from your clan stash, if you don't have any of the ingredients</li>
+   <li>buy from an NPC store, if it's available</li>
+   <li>buy from a PC store, if it's a pixel item or you don't have any of the ingredients</li>
+   <li>item creation by getting any needed ingredients</li>
+   <li>buy from a PC store, unless it's a no-sell item (TPS drinks)</li></ol></dd></dl></dd>
+
+   <dd><code>acquire [#] worthless item</code>
+   <br><code>(acquire 3 worthless item)</code>
+   <dl><dd>Attempts to go sewer fishing until you have the specified number of worthless items.  This command acquires chewing gum for the sewer and then adventuring at the sewer until you have the item.  Note that this does not use clovers and it will halt if KoLmafia thinks you have a clover in your inventory, which may often be the case if you adventure using the relay browser.</dd></dl></dd>
+
+   <dd><code>acquire [#] worthless item with clover</code>
+   <br><code>(acquire 3 worthless item with clover)</code>
+   <dl><dd>Attempts to go sewer fishing until you have the specified number of worthless items by converting your clovers into trinkets.  Note that this does not do a spice loop for you; all it does is convert your clovers into trinkets, spices and the item you have specified in your preferences (if you have not modified those preferences, the last item is a stolen accordion).  Like its cloverless counterpart, this command acquires chewing gum for the sewer and then adventuring at the sewer until you have the item. </dd></dl></dd>
+
+   <dd><code>hermit &lt;#> &lt;itemname></code>
+   <dl><dd>Goes to the hermit to trade the given number of worthless trinkets for the equivalent number of the given item from the hermit.</dd></dl></dd>
+
+   <dd><code>eat [#] &lt;itemname></code> <code>(eat 5 spectral pickle)</code>
+   <br><code>drink [#] &lt;itemname></code> <code>(drink 3 grogtini)</code>
+   <br><code>use [#] &lt;itemname></code> <code>(use 1 31337 scroll)</code>
+   <dl><dd>Consumes the given item.  In the case of food, KoLmafia will check the restaurant first to see if the item is available.  In the case of drinks, KoLmafia will check the microbrewery first to see if the item is available.  KoLmafia implicitly uses the "acquire" command when attempting to use the item; therefore, if you type "use 1 31337 scroll" then KoLmafia will try to get a 31337 scroll first and then execute the command.  There is one special exception; in the case of TPS drinks, KoLmafia will attempt to make the drinks one by one, regardless of however many tiny plastic swords you have available.</dd></dl></dd>
+
+   <dd><code>buy [#] &lt;itemlist></code>
+   <br><code>(buy 1 buffing spray, 1 learning pill, 3 tiny plastic fuzzy dice)</code>
+   <dl><dd>Buys the specified number of the specified item from the Kingdom of Loathing mall, or from an NPC store, if available.  KoLmafia will search for the cheapest stores and continue purchasing until the given number has been satisfied (or until you run out of meat).  Note that KoLmafia will use substring matching in order to determine which item will be purchased.  The user may also use "*" to indicate that they want to simply double the number of items in their inventory.</dd></dl></dd>
+
+   <dd><code>make [#] &lt;itemname></code>
+   <br><code>(make 20 philter of force)</code>
+   <dl><dd>Creates the given item from currently available ingredients.  If the user has already specified (through the graphical user interface, or through modifying the preferences file manually) that they wish to use their closet as a source of ingredients, the command line interface will do so.  The user can opt to specify the number of items they wish to create, or KoLmafia will assume that the user wishes to create 1 of the given item if there are no number is specified.  The user may also use "*" to indicate that they wish to create the maximum number possible, given their current supply of raw materials.  Nonpositive numbers indicate "everything except"; in other words, KoLmafia will attempt to determine the maximum number of items that can be created, and will create slightly less than that by the number specified.</dd></dl></dd>
+
+   <dd><code>untinker &lt;itemname></code>
+   <dl><dd>Untinkers one of the given item.  This option is only available for items which are known to be creatable using meat paste, and this command only untinkers one item.  A number may be specified, but it will be ignored during the execution of this command.</dd></dl></dd>
+
+   <dd><code>autosell [#] &lt;itemlist></code>
+   <br><code>(autosell * meat stack, * dense meat stack)</code>
+   <dl><dd>Autosells the given list of items to a random NPC, generated by the Kingdom of Loathing server.  The user can opt to specify the number of items they wish to autosell, or KoLmafia will assume that the user wishes to autosell 1 of the given item if there are no number is specified.  The user may also use "*" to indicate that they wish to sell all available items.  Nonpositive numbers indicate "everything except".  Note that the user will not be told how much meat was received for the transaction; they will only be notified that the transaction was completed successfully.</dd></dl></dd>
+
+ </dl>
+
+ <a name="conditions"></a>
+ <h3>Conditions and Objectives</h3>
+
+ <dl><dd>The following section of the manual outlines conditions.  Whenever you're using the GUI and you see the "Objectives" line and place information there, imagine as though KoLmafia were continually executing "conditions set" for every condition.</dd>
+
+   <dd></a><code>conditions add &lt;parameter></code>
+   <br><code>(conditions add 6 goat cheese)</code>
+   <dl><dd>Adds a condition to the list of auto-halt conditions for adventuring.  Whenever all of the conditions added have been achieved (the list of conditions can be retrieved using the "conditions list" command), KoLmafia will automatically halt.  The following are valid parameters for this command:
+
+      <br><br><code>[#] &lt;itemname></code>
+      <br><blockquote>This parameter is used for item conditions.  KoLmafia will automatically remove the condition whenever the given number of the item is acquired through actions made by KoLmafia.  If no number is specified, KoLmafia will assume one of an item is desired.</blockquote>
+
+      <code>[#] choiceadv</code>
+      <br><blockquote>This parameter is used when you want to use choice adventures as a condition.  KoLmafia will automatically remove the condition whenever the given number of choice adventures are encountered and processed according to the user's settings.  Note that ignoring a choice adventure will not result in this counter decrementing, so be sure that none of your choice adventure settings are ignored when using this option.</blockquote>
+
+      <code>level &lt;#></code>
+      <br><blockquote>This parameter is used when you want to use the acquisition of the given level as a condition.  KoLmafia will automatically remove the condition whenever enough of the player's primary stat is achieved to reach the given level.  For example, specifying "level 5" will notify KoLmafia to continue adventuring until the user has enough stat points in their primary stat to qualify them for level 5.</blockquote>
+
+      <code>&lt;#> muscle</code>
+      <br><blockquote>This parameter is used when you want to use the muscle stat as a condition.  KoLmafia will automatically remove the condition whenever the given muscle stat is achieved.  For example, specifying "13 muscle" will notify KoLmafia to continue adventuring until the user has at least 13 in their muscle stat.  The "muscle" keyword may be abbreviated to "mus".</blockquote>
+
+      <code>&lt;#> mysticality</code>
+      <br><blockquote>This parameter is used when you want to use the mysticality stat as a condition.  KoLmafia will automatically remove the condition whenever the given mysticality stat is achieved.  For example, specifying "13 mysticality" will notify KoLmafia to continue adventuring until the user has at least 13 in their mysticality stat.  The "mysticality" keyword may be abbreviated to "mys" or "myst".</blockquote>
+
+      <code>&lt;#> moxie</code>
+      <br><blockquote>This parameter is used when you want to use the moxie stat as a condition.  KoLmafia will automatically remove the condition whenever the given moxie stat is achieved.  For example, specifying "13 moxie" will notify KoLmafia to continue adventuring until the user has at least 13 in their moxie stat.  The "moxie" keyword may be abbreviated to "mox".</blockquote>
+
+      <code>&lt;#> health</code>
+      <br><blockquote>This parameter is used when you want to use the amount of health you have remaining as a condition.  KoLmafia will automatically remove the condition whenever the given amount of health is reached.  For example, specifying "10 health" will notify KoLmafia to continue adventuring until the user has at least 10 health remaining.</blockquote>
+
+      <code>&lt;#> mana</code>
+      <br><blockquote>This parameter is used when you want to use the amount of mana you have remaining as a condition.  KoLmafia will automatically remove the condition whenever the given amount of mana is reached.  For example, specifying "10 mana" will notify KoLmafia to continue adventuring until the user has at least 10 mana remaining.</blockquote>
+
+   Note that these conditions are affected by nearly every action that you take, but are only considered "halting" when you're adventuring.  In that sense, it's possible to add a condition to the list of conditions and have it satisfied before you ever adventure if you should purchase the item from the mall, for example.</dd></dl></dd>
+
+   <dd><code>conditions check</code>
+   <dl><dd>This command is meant to guide the user, not to be used in scripting.  Validates the current list of conditions against the player's inventory.  Only items which are missing will be retained.  Note that the conditions list may become empty after using this command -- in this case, autohalting will not trigger, because there are no items left.</dd></dl></dd>
+
+   <dd><code>conditions clear</code>
+   <dl><dd>Clears the list of conditions.  Other than satisfying a condition, this is the only way to get the list of conditions to get cleared - it is not possible to add negative amounts to the conditions list, for example.</dd></dl></dd>
+
+   <dd><code>conditions list</code>
+   <dl><dd>Lists the remaining halting conditions.  Any conditions already met will not be printed to the screen, and any partially satisfied conditions will be listed with respect to how many of the condition remain to be satisfied.</dd></dl></dd>
+
+ </dl>
+
+ <a name="moods"></a>
+ <h3>CLI Mood Management</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which handle moods.</dd>
+
+   <dd><code>mood &lt;moodname></code>
+   <br><code>(mood apathetic)</code>
+   <dl><dd>Changes the mood of the player to the specified mood.</dd></dl></dd>
+
+   <dd><code>mood execute</code>
+   <dl><dd>Executes the current mood.</dd></dl></dd>
+
+   <dd><code>mood clear</code>
+   <dl><dd>Clears all triggers associated with the current mood.</dd></dl></dd>
+
+   <dd><code>mood autofill</code>
+   <dl><dd>Automatically fills up the list of moods with default values based on the player's current stats and skills.</dd></dl></dd>
+
+   <dd><code>trigger &lt;type>, &lt;name> &lt;action></code>
+   <br><code>(trigger gain_effect, Beaten Up, adventure 1 moxie vacation)</code>
+   <dl><dd>Adds the specified trigger to the current mood.</dd></dl></dd>
+
+ </dl>
+
+ <a name="items2"></a>
+ <h3>Other Item Management</h3>
+
+ <dl><dd>The following section of the manual outlines the basic item management commands which you are useful, but not used as often.</dd>
+
+   <dd><code>send &lt;itemlist> to &lt;recipient></code>
+   <br><code>(send 1 valentine, * tiny plastic fuzzy dice to holatuwol)</code>
+   <dl><dd>Attempts to send the items in the given list to the specified player.  Just like all other item-related commands, you may specify a quantity for each item; in addition to this, you may also specify an amount of meat to send to the player by using "meat".  Using "*" designates an attempt to place all of that item (which you have in your inventory) into the message.  Nonpositive numbers indicate "everything except" the given quantity will be placed in the message.  Gift messages will be used whenever a normal kmail attempt fails.</dd></dl></dd>
+
+   <dd><code>csend &lt;itemlist> to &lt;recipient></code>
+   <br><code>(csend 1 meat to testudinata)</code>
+   <dl><dd>The 'c' in 'csend' stands for 'convertible'.  While this can be used to script standard requests, it's primary use is to automatically convert requests for philanthropic buffs into requests for non-philanthropic buffs.  This is done because in v10.5 of KoLmafia and beyond, scripted requests for philanthropic buffs are denied.  Other than that, treat this command the same as the 'send' command.</dd></dl></dd>
+
+   <dd><code>closet &lt;take/put> [#] &lt;itemlist></code>
+   <br><code>(closet put * baseball, * barbed-wire fence)</code>
+   <dl><dd>Removes or places the specified list of items into the player's closet.</dd></dl></dd>
+
+   <dd><code>hagnk [#] &lt;itemlist></code>
+   <br><code>(hagnk 3 canned air, 17000 meat)</code>
+   <dl><dd>Retrieves the given item from Hagnk's ancestral storage.  Using "*" and nonpositive numbers has a dangerous meaning for this command (it attempts to match the number of items currently in your inventory), so please be sure to use the correct, positive numbers when accessing Hagnk's ancestral storage.</dd></dl></dd>
+
+   <dd><code>stash [take|put] [#] &lt;itemname></code>
+   <br><code>(stash put * red pixel potion)</code>
+   <dl><dd>Attempts to place (or remove) one of the given item in (or from) the clan stash, if no number is specified, or the given number of the item if a number is specified.  Using "*" designates an attempt to place all of that item (which you have in your inventory) into the clan stash.  Nonpositive numbers indicate "everything except" the given quantity will be placed in the clan stash.  If you do not have a clan stash, this command assumes you do, executes the command, and removes the item from the known items in your inventory.  If KoL doesn't validate this URL, your item will likely disappear forever.</dd></dl></dd>
+
+   <dd><code>display &lt;take|put> [#] &lt;itemname></code>
+   <br><code>(display take * lime)</code>
+   <dl><dd>Attempts to place (or remove) one of the given item in (or from) the display case, if no number is specified, or the given number of the item if a number is specified.  Using "*" designates an attempt to place all of that item (which you have in your inventory) into the clan stash.  Nonpositive numbers indicate "everything except" the given quantity will be placed in the display case.  Note that "*" and non-positive numbers have no real meaning when removing things from a display case.  If you do not have a display case, this command assumes you do, executes the command, and your item will likely disappear forever.</dd></dl></dd>
+
+   <dd><code>zap &lt;itemname></code>
+   <br><code>(zap firecracker)</code>
+   <dl><dd>Zaps the given item with the wand currently in your inventory.  Note that the results of this command, just like the results of the wand in-game, are unpredictable.</dd></dl></dd>
+
+   <dd><code>pulverize [#] &lt;itemname></code>
+   <br><code>(pulverize blank white card)</code>
+   <dl><dd>Pulverizes the given item using the seal-clubber "pulverize" skill.</dd></dl></dd>
+
+   <dd><code>mallsell [#] &lt;itemname> @ &lt;price> limit &lt;limit></code>
+   <br><code>(mallsell 1 mr. accessory @ 5,000,000 limit 0)</code>
+   <dl><dd>Places the given item in your store in the mall.  The user must specify the item which will be sold in the mall, the price, and the desired limit.  A limit of 0 equates to no limit at all.</dd></dl></dd>
+
+ </dl>
+
+ <a name="gear"></a>
+ <h3>Gear Management</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which you are likely to use to manage your equipment.</dd>
+
+   <dd><code>equip &lt;itemname></code>
+   <br><code>(equip wizard hat)</code>
+   <dl><dd>Attempts to equip the given item, if it is currently available in the player's inventory.  This includes weapons, armor and hats as well as familiar items.  It is currently not possible to equip normal accessories with this command unless the player has a free accessory slot.</dd></dl></dd>
+
+   <dd><code>equip &lt;slotname> &lt;itemname></code>
+   <br><code>(equip acc1 bonerdagon necklace)</code>
+   <dl><dd>Attempts to equip the given item to the specified slot, if it is currently available in the player's inventory.  This includes weapons (the "weapon" slot), armor ("pants" and "shirt" slot) and hats ("hat" slot) as well as familiar items ("familiar").  Accessories can be equipped with this command by specifying the slot which will be used ("acc1", "acc2", and "acc3").  Fake hands can be accessed using the "fakehand" slot name.  Off-hand items can be accesed using the "off-hand" slot name.</dd></dl></dd>
+
+   <dd><code>remove &lt;itemname></code>
+   <br><code>(remove tiny plastic)</code>
+   <dl><dd>Attempts to unequip the given item, if it is currently equipped.  Note that all items currently equipped which match the substring provided will be unequipped.  This includes weapons, armor and hats as well as familiar items and accessories.</dd></dl></dd>
+
+   <dd><code>remove &lt;slotname></code>
+   <br><code>(remove off-hand)</code>
+   <dl><dd>Attempts to unequip the item in the specified equipment slot.  As with the "equip" command, valid slots include "weapon", "pants", "shirt", "hat", "acc1", "acc2", "acc3", "familiiar", "fakehand", and "off-hand", all of which correspond to the same slots as the "equip" command.</dd></dl></dd>
+
+   <dd><code>familiar [familartype]</code>
+   <br><code>(familiar cheshire)</code>
+   <dl><dd>Changes your current familiar to the familiar type specified.  Please use the <i>race</i> of your familiar (such as crimbo elf, or volleyball) when specifying the familiar type.  Substring matching will be used in familiar specification, so you can use shorthand names (such as dreidl) if you don't know how to spell the familiar's race.</dd></dl></dd>
+
+   <dd><code>outfit [outfitname]</code>
+   <br><code>(outfit harem)</code>
+   <dl><dd>Changes your current equipment to the equipment contained in the outfit specified.  Please use the actual name of the outfit or a substring fo the current outfit.  The character's equipment following the outfit request will also be printed to let you see if the outfit actually changed; no error messages will be displayed if an outfit change failed.  If you'd like a list of your available outfits, you can use "list" for the outfit name.</dd></dl></dd>
+
+   <dd><code>checkpoint</code>
+   <dl><dd>Saves your current equipment to a "KoLmafia Checkpoint" oufit.</dd></dl></dd>
+
+ </dl>
+
+ <a name="actions"></a>
+ <h3>Basic Activities</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which you are likely to use to access the campground.</dd>
+
+   <dd><code>breakfast</code>
+   <dl><dd>Executes the standard KoLmafia breakfast routine.  This includes the summoning of all applicable items through spellcasting as well as retrieval of toast and items from the arches.</dd></dl></dd>
+
+   <dd><code>adventure [#] &lt;location></code>
+   <br><code>(adventure 5 moxie vacation)</code>
+   <dl><dd>Visits the given location for the given number of times, or once if no number is specified, or for all the user's turns if "*" is used in place of a number.  Nonpositive numbers indicate "everything except" the given number of adventures.  The area name can be any substring matching an adventure area that KoLmafia can currently handle.  Shore locations can be specified by the stat that they boost, followed by the word "vacation".</dd></dl></dd>
+
+   <dd><code>rest [#]</code>
+   <br><code>(rest 3)</code>
+   <dl><dd>Rests at the campground in your tent (or whatever your new living quarters are) for the given number of turns, or rests exactly once if no number is specified.</dd></dl></dd>
+
+   <dd><code>relax [#]</code>
+   <br><code>(relax 4)</code>
+   <dl><dd>Relaxes at the campground in your beanbag chair for the given number of turns, or relax exactly once if no number is specified.  Note that if you don't have a beanbag chair, this command will still send the requests but ultimately do nothing productive.  Therefore, do not use it unless you have a beanbag chair.</dd></dl></dd>
+
+   <dd><code>galaktik &lt;hp/mp&gt;</code>
+   <dl><dd>Asks for Doc Galaktik's cures.  KoLmafia assumes that you have not complete Doc Galaktik's quest when subtracting expenditures in your session tally.<dd></dl></dd>
+
+   <dd><code>restore &lt;hp/mp&gt;</code>
+   <dl><dd>Fully restores your health or mana using KoLmafia's built-in restoration algorithm.<dd></dl></dd>
+
+   <dd><code>cast [#] &lt;skillname> [on &lt;targetname>]</code>
+   <br><code>(cast 5 smile on Veracity)</code>
+   <dl><dd>Attempts to cast the given skill/buff once, if no number is specified, or the given number of times if a number is specified.  If the specified number is more than your current mana allows, then KoLmafia will attempt to restore your mana in-between in order to fulfill the specified number of casts.  The skill name can be any substring matching a skill that the character currently has available.  If the "on" parameter is specified, then KoLmafia will cast the given buff on the provided target.</dd></dl></dd>
+
+   <dd><code>uneffect &lt;effectname></code>
+   <br><code>(uneffect beaten up)</code>
+   <dl><dd>Attempts to remove the given effect.  If the effect is a buff, it will be shrugged off.  If the effect is not a buff, the effect will be removed using a soft green echo eyedrop antidote.  Note that anti-anti-antidote is not used for the poisoned status, nor are tiny houses and forest tears used for other ailments.  All effects which contain the provided substring will be uneffected through the use of this command, provided enough items are available for the uneffect process.  Effects will be removed in alphabetical order.</dd></dl></dd>
+
+   <dd><code>mcd &lt;setting></code>
+   <br><code>(mcd 11)</code>
+   <dl><dd>Changes the setting on the mind-control device in Canadia to the given value.  This command should only be used after ascension, and you should only use this command if you have ascended under a mysticality sign.  If you have not ascended under a mysticality sign, this command has unpredictable results.</dd></dl></dd>
+
+   <dd><code>donate &lt;heroname> &lt;amount></code>
+   <br><code>(donate jarlsberg 31,337)</code>
+   <dl><dd>Donates the given amount of meat to the hero specified.  Note that the name of the hero must be one word, and only "pete", "boris" and "jarlsberg" are currently accepted names for the heroes in this version of KoLmafia.  All numerical values may be comma-delimited for the user's convenience.</dd></dl></dd>
+
+ </dl>
+
+ <a name="tools"></a>
+ <h3>Tool-Related Activities</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which invoke the special tools available inside of KoLmafia.</dd>
+
+   <dd><code>buffbot [#]</code>
+   <br><code>(buffbot 10000)</code>
+   <dl><dd>Runs the buffbot for the given number of iterations.  An iteration is a single instance of checking the user's mailbox; the buffbot will automatically shut down when it encounters an error state.  All buffbot messages will be printed to the console, if running from the CLI.  No other activity is possible while the buffbot is running.</dd></dl></dd>
+
+   <dd><code>clan snapshot</code>
+   <dl><dd>Takes a clan snapshot which records all of the current player data for all members of the clan.</dd></dl></dd>
+
+   <dd><code>clan stashlog</code>
+   <dl><dd>Takes a snapshot of all activity which has taken place inside of the clan stash.</dd></dl></dd>
+
+   <dd><code>train &lt;goaltype> &lt;goalvalue></code>
+   <br><code>(train buffed 20)</code>
+   <dl><dd>Trains the familiar with the given goal in mind.  The valid values for a goal type include "base" which attempts to train the familiar to a given base weight, "buffed" which attempts to train the familiar to the given buffed weight, and "turns" which attempts to train the familiar for the given number of turns.</dd></dl></dd>
+
+   <dd><code>moon</code>
+   <dl><dd>Prints the current moon phase information to the console.  This includes the textual description of Ronald and Grimace's phase (in fancy astrology speak) as well as the duration until the next major stat boost day and major holidays.  This is the same information that is provided in the KoLmafia Farmer's Almanac.</dd></dl></dd>
+
+   <dd><code>undercut</code>
+   <dl><dd>Takes all of the items currently in your store that are selling for 999,999,999 and prices them at the mall's current lowest price, rounded down to the nearest hundred (if possible).  This is equivalent to the "undercut" button in the store manager interface.</dd></dl></dd>
+
+   <dd><code>field harvest</code>
+   <dl><dd>Picks all the mushrooms in the mushroom field.  This command will leave spores alone.</dd></dl></dd>
+
+   <dd><code>field pick &lt;#></code>
+   <br><code>(field pick 12)</code>
+   <dl><dd>Picks the mushroom or spore located at the given square number, without testing to see what it actually is.  This effectively clears the given location for additional planting, or harvests the individual mushroom.  The squares are arranged in the following array:
+
+   <pre>
+    1  2  3  4
+    5  6  7  8
+    9 10 11 12
+   13 14 15 16</pre></dd></dl></dd>
+
+   <dd><code>field plant &lt;#> &lt;sporetype></code>
+   <br><code>(field plant 3 spooky mushroom)</code>
+   <dl><dd>Plants the given type of mushroom spore at the given square number.  For script clarity, it is recommended that you use the full name of the mushroom that will be planted there.  KoLmafia does not recognize the word "spore" in its parsing, so do not add the word "spore" when using this command.  Just as with picking, the squares are arranged in the following array:
+
+   <pre>
+    1  2  3  4
+    5  6  7  8
+    9 10 11 12
+   13 14 15 16</pre></dd></dl></dd>
+
+   <dd><code>field show</code>
+   <dl><dd>Prints a picture of the mushroom field to the console or the fake console provided by the Graphical CLI.  Please note that it is not possible to print a picture of your field to a file using this command.</dd></dl></dd>
+
+ </dl>
+
+ <a name="quests"></a>
+ <h3>Built-In Quests</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which invoke the quests which are handled internally by KoLmafia.</dd>
+
+   <dd><code>council</code>
+   <dl><dd>Visits the Council of Loathing in order to retrieve quest rewards and view information on available quests (and unlock new quests, for that matter).</dd></dl></dd>
+
+   <dd><code>guild</code>
+   <dl><dd>Completes the first guild subquest to unlock the guild store.  This script does not know when/if it fails.</dd></dl></dd>
+
+   <dd><code>gourd</code>
+   <dl><dd>Trades as many gourd items as possible with the Keeper of the Gourd.</dd></dl></dd>
+
+   <dd><code>tavern</code>
+   <dl><dd>Locates the grid location of the rat faucet.  Note that the user will still have to manually do something with the faucet; this script merely finds it.</dd></dl></dd>
+
+   <dd><code>nemesis</code>
+   <dl><dd>Completes the nemesis subquest.  If it fails, it prints out a list of items which are still needed before you can complete the nemesis subquest.</dd></dl></dd>
+
+   <dd><code>leaflet</code>
+   <dl><dd>Completes the leaflet subquest.  This includes using the known "magic word" inside of the leaflet in order to gain stat points.  If, however, KoLmafia cannot determine your current state in the leaflet, it aborts the command.</dd></dl></dd>
+
+   <dd><code>entryway</code>
+   <dl><dd>Completes the entryway subquest for the Lair of the Naughty Sorceress.  If it fails, it prints out the list of items which are still needed before you can complete the entryway for the Sorceress' Lair.</dd></dl></dd>
+
+   <dd><code>maze</code>
+   <dl><dd>Completes the hedge maze subquest for the Lair of the Naughty Sorceress.  If it fails, it prints out the list of items which are still needed before you can complete the hedge maze for the Sorceress' Lair (which is actually just the hedge maze puzzle piece, but it is displayed for consistency).</dd></dl></dd>
+
+   <dd><code>tower</code>
+   <dl><dd>Completes the guardian tower subquest for the Lair of the Naughty Sorceress.  If it fails, it prints out the next item needed to complete the next level of the guardian tower for the Sorceress' Lair.</dd></dl></dd>
+
+   <dd><code>chamber</code>
+   <dl><dd>Completes the chamber subquest for the Lair of the Naughty Sorceress.  If it fails, it prints out the next thing needed for completion of the chamber, which can be completion of the code (in the event that KoLmafia was unable to deduce the code), the next familiar needed for the familiar battle, or health-failure (because one of the steps requires that the player have full health).</dd></dl></dd>
+
+ </dl>
+
+ <a name="frames"></a>
+ <h3>User Interface Loading</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which load a KoLmafia-related graphical user interface element.</dd>
+
+   <blockquote><table>
+     <tr><td><code>priphea</code></td><td>Loads the KoLmafia interface</td></tr>
+     <tr><td><code>chat</code></td><td>Loads the chat engine</td></tr>
+     <tr><td><code>mail</code></td><td>Loads the mail reader</td></tr>
+     <tr><td><code>event</code></td><td>Loads the recent events display</td></tr>
+     <tr><td><code>compose</code></td><td>Loads the kmail composer</td></tr>
+     <tr><td><code>gift</code></td><td>Loads the gift composer</td></tr>
+     <tr><td><code>item</code></td><td>Loads the item manager</td></tr>
+     <tr><td><code>clan</code></td><td>Loads the clan manager</td></tr>
+     <tr><td><code>gear</code></td><td>Loads the gear changer</td></tr>
+     <tr><td><code>pvp</code></td><td>Loads the flower hunter</td></tr>
+     <tr><td><code>relay</code></td><td>Loads the relay browser</td></tr>
+     <tr><td><code>forums</code></td><td>Loads the KoL forums in a browser</td></tr>
+  </table></blockquote>
+
+ </dl>
+
+ <a name="scripts"></a>
+ <h3>Script Commands</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which were intended to help you run, write and manage scripts.</dd>
+
+   <dd><code>verify &lt;filename></code>
+   <br><code>(verify bugged_script.ash)</code>
+   <dl><dd>Verifies that the specified Advanced Script Handler script is understood by the Advanced Script Handler interpreter without running it.  This allows people to check whether or not their script is valid without having to run it (ie: currently being in a state where it's not possible, or not wise, to run the script).</dd></dl></dd>
+
+   <dd><code>call [#] &lt;filename></code>
+   <br><code>(call healing_script.ash)</code>
+   <dl><dd>Executes the specified script.  Note that the script will use all the character and inventory data from the current scripting session and all consequences will be reflected in the current session as well.  The filename can be relative to the "scripts" directory or can specify an absolute path name.  If the file name ends in ".ash", the Advanced Script Handler will be used to parse the script.  If a number is specified, the given script will be repeated the specified number of times.</dd></dl></dd>
+
+   <dd><code>using &lt;filename></code>
+   <br><code>(using new_commands.ash)</code>
+   <dl><dd>Allows all ASH functions defined in the given file to be used as though they were CLI commands in both the gCLI and the standard CLI (in programmer terms, the ASH functions are imported into the CLI namespace).  The given file will remain in the namespace, even after subsequent "using" commands are issued for different files, and will remain in the namespace until KoLmafia's data files are cleared or the "commandLineNamespace" property is modified.</dd></dl>
+
+   <dd><code>repeat [#]</code>
+   <dl><dd>Repeats the most recent command requested once, if no argument is specified, or for the given number of times, if a number is specified.  Note that this includes the "login" command, if it was used.  If no command was used prior to this command, this command does nothing.</dd></dl></dd>
+
+   <dd><code>abort [message]</code>
+   <br><code>(abort We've got a problem, Houston.)</code>
+   <dl><dd>Aborts a script and prints the given message to the display.  Note that this command holds no meaning when executed from outside of a script; it will cause the graphical CLI to display the default red, but otherwise, nothing happens.</dd></dl></dd>
+
+   <dd><code>wait [#]</code>
+   <br><code>(wait 60)</code>
+   <dl><dd>Waits for the given number of seconds, complete with countdown.  This is used primarily for scripting, or for waiting for a reply to buff requests, or for games where there is a time limit for answers.  In general, it's a novelty and serves no actual purpose.  Note that this only freezes the UI - things already occurring in the background will continue working in the background.</dd></dl></dd>
+
+   <dd><code>mirror &lt;filename></code>
+   <br><code>(mirror cli_output.txt)</code>
+   <dl><dd>Mirrors all output which would be sent to the console to the given file.  Basically, it's like recording everything that the command-line interface displays to a separate file.  If you're trying to get a CLI log in order to help debug KoLmafia, this is the command that you would use.</dd></dl></dd>
+
+   <dd><code>debug &lt;on/off></code>
+   <dl><dd>Turns debug mode on or off, pending on the parameter.  Note that the debugger prints all information to a KoLmafia.log file found in the data/ directory where KoLmafia's settings are stored.  All debug information is appended to the existing log file; a new log file is created if and only if one did not exist prior to starting the debugger.</dd></dl></dd>
+
+   <dd><code>echo &lt;message></code>
+   <br><code>(echo World domination, baby.)</code>
+   <dl><dd>Echoes the given message to the display.</dd></dl></dd>
+
+   <dd><code>exit</code>
+   <dl><dd>Ends the user's current session and exits KoLmafia.  This command attempts to be server-friendly and initiates a logout request before formally exiting the program.</dd></dl></dd>
+
+ </dl>
+
+ <a name="data"></a>
+ <h3>Data Management</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which do nothing more than display data.</dd>
+
+   <dd><code>status</code>
+   <dl><dd>Prints the information relating to the character.  This information contains the character's vital statistics, including hit point and mana point information as well as their base stats and available meat.  You also get a printout of your current equipment.  This is essentially the text-only version of the status pane and gear changer displayed in the GUI version of KoLmafia.</dd></dl></dd>
+
+   <dd><code>status refresh</code>
+   <dl><dd>Refreshes the player's character sheet, which refreshes the currently active skills, effects and health/mana information, in case KoLmafia has fallen behind somewhere along the way, and then prints the information relating to the character that would have been provided with a normal status command.</dd></dl></dd>
+
+   <dd><code>effects</code>
+   <dl><dd>Lists the effects that the character currently has, according to KoLmafia.  Note that this is not completely current; if you have received buffs from chat or from your clan, they will not be reflected until your status is refreshed (you can refresh your effects by typing "effects refresh", but keep
+in mind this is no different from "status refresh").</dd></dl></dd>
+
+   <dd><code>lookup &lt;itemname></code>
+   <br><code>(lookup tiny plastic grue)</code>
+   <dl><dd>Looks up the description for the given item and prints it to the console.  Because this is a command-line interface, only textual data will be displayed to the console; no images will be present when the item description is displayed.  If this is invoked while using a GUI client, then KoLmafia will popup a window displaying the data.</dd></dl></dd>
+
+   <dd><code>survival &lt;location></code>
+   <br><code>(survival hole in the sky)</code>
+   <dl><dd>Looks up the survival statistics for the given location and prints it to the console.  This is equivalent to the information found in the Locations drop down on the main adventuring interface.</dd></dl></dd>
+
+   <dd><code>inv [filter]</code>
+   <br><code>(inv tiny plastic)</code>
+   <dl><dd>Lists the items currently contained in the players inventory.  If the user wishes to only see a small subset of the items which are in the inventory, they may specify a substring filter and only items matching that filter will be displayed.  Using "refresh" as a parameter instead of a filter refreshes the inventory before printing out this information.</dd></dl></dd>
+
+   <dd><code>summary [filename]</code>
+   <br><code>(summary droprate_20060101.txt)</code>
+   <dl><dd>Prints a summary of the results for the current session to the console, or to the specified file if a file is specified.  This is everything tallied by KoLmafia since the start of the session and corresponds to the display that's shown on KoLmafia's mane adventuring pane on the graphical user interface.  Use this if you'd like a summary of what's been accomplished in the current session.</dd></dl></dd>
+
+   <dd><code>encounters [filename]</code>
+   <br><code>(encounters adventures_20060101.txt)</code>
+   <dl><dd>Lists the encounters (locations and adventures) that the character currently has seen in the current session, according to KoLmafia, and prints the results to the console.  The printout will be divided into the adventure locations which were visited in the order they were visited, followed by the list of enemies which were encountered at those locations, sorted in no particular order.</dd></dl></dd>
+
+   <dd><code>searchmall &lt;itemname></code>
+   <br><code>(searchmall pickle)</code>
+   <dl><dd>Searches the mall for all items with the given substring in their name.  This is useful for those using the command-line interface who are planning on buying something the mall, but would like some assistance in making this decision.  The data is meant only for convenience purposes - therefore, it does not store the results in a separate file.</dd></dl></dd>
+
+   <dd><code>restaurant</code>
+   <dl><dd>Prints the current offering of foods from the Canadian restaurant.</dd></dl></dd>
+
+   <dd><code>microbrewery</code>
+   <dl><dd>Prints the current offering of foods from the Gnomish microbrewery.</dd></dl></dd>
+
+ </dl>
+
+ <a name="misc"></a>
+ <h3>Uncategorized Commands</h3>
+
+ <dl><dd>The following section of the manual outlines the commands which do nothing more than display data.</dd>
+
+   <dd><code>session [filename]</code>
+   <br><code>(session kolcli_helper.txt)</code>
+   <dl><dd>Prints the information relating to the current session to the console, or to the specified file if a file is specified.  This information contains the name of the player associated with the current session, the password hash for the current session and the session ID (the session cookie) used for the current session.  This can be used by other KoL clients (if they import this information) to interact directly with the session without disturbing KoLmafia's session.</dd></dl></dd>
+
+   <dd><code>timein</code>
+   <dl><dd>Refreshes the player's session ID and password hash.</dd></dl></dd>
+
+   <dd><code>get &lt;settingname></code>
+   <br><code>(get autoSatisfyChecks)</code>
+   <dl><dd>Prints the specified setting to the screen.  If you would like to know which settings are available, please open up one of the ~.kcs files.  No documentation exists for these values at this time, but they are, for the most part, self-explanatory.</dd></dl></dd>
+
+   <dd><code>set &lt;settingname>=&lt;settingvalue></code>
+   <br><code>(set battleAction=lunging thrust-smack)</code>
+   <dl><dd>Changes a KoLmafia setting to the specified value.  Modifying these settings incorrectly will cause KoLmafia to crash, so be sure of what you're doing before you attempt to use this command.</dd></dl></dd>
+
+   <dd><code>update</code>
+   <dl><dd>Downloads all of KoLmafia's override files from the KoLmafia website.  Note that the updates to note take effect immediately; you must restart KoLmafia before KoLmafia updates itself.</dd></dl></dd>
+
+ </dl>
+
+ <a name="branching"></a>
+ <h3>Flow Control</h3>
+
+ <dl><dd>KoLmafia also provides flow control statements for programmer types who do not yet feel like transitioning to the ASH.  Note, however, please note that only the line following the conditional statement will be executed; therefore, if you wish to execute a series of commands, all of the commands which activate on the conditional must be combined on one line using semi-colons, or all of the commands must be inside a single "script".</dd></dl>
+
+ <dl><dd>KoLmafia permits two kinds of branching instructions in its basic interface (<code>if</code> and <code>while</code>) and allows for six different conditional operators (<code>==</code>, <code>!=</code>, <code>>=</code>, <code>&lt;=</code>, <code>></code>, <code>&lt;</code>).</dd></dl>
+
+ <dl><dd>The following are possible operands on either side of the conditional operator:
+
+    <ul><li>the name of an item</li>
+    <li>the name of an effect</li></ul>
+
+ </dd></dl><dl><dd>The following are possible operands only on the left side of the conditional operator:
+
+    <ul><li>the word "level" which stands for this player's current level</li>
+    <li>the word "meat" which stands for the amount of liquid meat not in storage or in the closet</li>
+    <li>the word "health" which stands for the player's current amount of health</li>
+    <li>the word "mana" which stands for the player's current mana count</li></ul>
+
+ </dd></dl><dl><dd>The following are possible operands only on the right side of the conditional operator:
+
+    <ul><li>an integer value corresponding to the amount which will be compared</li>
+    <li>an integer value followed by the "%" symbol (only valid if "health" or "mana" are on the left side of the conditional)</li></ul>
+
+ </dd></dl><dl><dd>In addition to these two-operator commands, KoLmafia also allows for conditional commands which read more like English, because they do not fit inside of the numerical comparisons which are used in the standard conditional operators.  These operations are as follows:
+
+ <ul><li><code>if class is &lt;classname></code><br><code>if class is not &lt;classname></code><br><br>
+This checks to see if the player is (or is not) of a given class.  Possible values for a class name include: seal clubber, turtle tamer, pastamancer, sauceror, disco bandit and accordion thief.</li><br><br>
+
+ <li><code>if skill list contains &lt;skillname></code><br><code>if skill list lacks &lt;skillname></code><br><br>
+This checks to see if the player has (or lacks) the given skill.  Note that partial names for skills are allowed; KoLmafia will simply validate the name against the list of all possible skills.</li><br><br>
+
+ <li><code>if bounty hunter wants &lt;itemname></code><br><br>
+This checks to see if the bounty hunter is currently trading the given item.  Partial names are accepted, but note that if ANY of the bounty hunter items contain the given substring, there will be a match.</li><br><br>
+
+ <li><code>if today is &lt;statname> day</code><br><code>if tomorrow is &lt;statname> day</code><br><br>
+This checks to see if today (or tomorrow) will be a stat day.  Stat days include "muscle" days, "mysticism" days and "moxie" days.</li><br><br>
+
+ </ul></dd></dl>
+
+</div><div class="footnote">Copyright &#169; 2003 Jason Robbins.  All rights reserved. <a href="readyset-license.html">License terms</code></a>.  Retain this copyright statement whenever this file is used as a template.</div>

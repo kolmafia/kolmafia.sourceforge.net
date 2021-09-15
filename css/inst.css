@@ -1,0 +1,76 @@
+body
+{	background-color: #eef;
+}
+
+/*
+This file contains rules that extend or override the more basic formatting defined in tigris.css.
+*/
+
+.app h3
+{	background-color: #036;
+	color: #fff;
+}
+
+tr ul, tr ol, tr p
+{	margin-top: 0;
+}
+
+tr ul
+{	margin-left: 0px;
+	padding-left: 2em;
+}
+
+hr
+{	text-align: center; width: 96%
+}
+
+li
+{	font-weight: normal;
+}
+
+body.docs
+{	background : #eee url()
+}
+
+.app td
+{	background: #ddd;
+}
+
+.axial td
+{	background: #eef;
+}
+
+.footnote
+{	border-top: solid #aaa 1px;
+	font-size: x-small;
+	padding-top: 3px;
+	margin-top: 3em;
+	display: none;
+}
+
+.sticky
+{	background: #ffc;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	padding: 3px;
+	margin-bottom: 3px;
+}
+
+.readonly
+{	background: #eee;
+	border: 1px solid #aaa;
+	padding: 3px;
+}
+
+.reusablefragment
+{	background: #eee;
+	border: 2px dashed;
+	padding: 6px;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+.drawtheline
+{	border-bottom: solid 1px black;
+	margin-bottom: 1em;
+}

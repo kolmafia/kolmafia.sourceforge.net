@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN" "http://style.tigris.org/tigris_transitional.dtd">
+<html><head>
+  <style type="text/css">/* <![CDATA[ */  @import "css/tigris.css";  @import "css/inst.css";  /*  ]]> */ </style>
+  <link rel="stylesheet" type="text/css" href="ash_reference_files/print.css" media="print"><title>KoLmafia: Advanced Scripting</title></head>
+
+<body>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=126572&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+
+<div class="app">
+
+ <h3>Table of Contents</h3>
+
+ <dl>
+   <dd>External Guides<dl>
+      <dd><a href="http://wiki.kolmafia.us/">KoLmafia Wiki</a></dd>
+      <dd><a href="http://kolmafia.us/">KoLmafia Scripting Forums</a></dd>
+    </dl></dd>
+
+   <dd>Technical References<dl>
+     <dd><a href="#files">File Name Convention</a></dd>
+     <dd><a href="#types">Supported Type Reference</a></dd>
+     <dd><a href="#branches">Flow Control Reference</a></dd>
+     <dd><a href="http://wiki.kolmafia.us/">Function Reference</a>
+   </dl></dd>
+
+   <dd>Advanced Tutorials<dl>
+     <dd><a href="#general">General ASH Tutorial, by Xylpher</a></dd>
+     <dd><a href="#maps">ASH Maps Tutorial, by Veracity</a></dd>
+   </dl></dd>
+
+ </dl>
+
+
+<a name="files"></a>
+<h3>File Name Convention</h3><blockquote>
+
+<p>Please note that all Advanced Script Handler (ASH) scripts MUST have the ".ash" extension (in other words, they must all end with ".ash").  Failure to conform to this file naming convention will result in really bizarre runtime errors.  Other than that, ASH scripts are handled exactly the same as standard command-line interface (CLI) scripts: you may select them from the scripts menu and "call" them from any command-line interface.  You should not, however, "call" other ASH scripts from within an ASH script, as this yields unpredictable results.</p>
+
+<a name="#types"></a>
+</blockquote><h3>Supported Type Reference</h3><blockquote>
+
+<p>KoLmafia's ASH supports five primitive types: <code>void</code>, <code>boolean</code>, <code>int</code>, <code>float</code>, and <code>string</code>.  In addition to the five primitive types, there are nine special types: <code>item</code>, <code>effect</code>, <code>class</code>, <code>stat</code>, <code>skill</code>, <code>familiar</code>, <code>slot</code>, <code>location</code>, and <code>zodiac</code>.  In addition to these, maps may be constructed from these primitive and special types.  Maps are also referred to as "aggregates" and are equivalent to the boolean algebra concept of a "map," where elements from a domain are mapped to elements in a range.  For more details, please read the <a href="#maps">maps tutorial</a>.</p>
+
+<ul>
+<li><code>item</code><br/>
+This can be any item found in the Kingdom of Loathing universe, such as a cog and a Mr. Accessory.</li><br/>
+
+<li><code>effect</code><br/>
+This is any status effect with which you can be afflicted, such as Empathy or Poisoned.</li><br/>
+
+<li><code>class</code><br/>
+Any of the six Kingdom of Loathing classes, such as Accordion Thief or Sauceror.</li><br/>
+
+<li><code>stat</code><br/>
+These are the three main stats - Muscle, Moxie or Mysticality.</li><br/>
+
+<li><code>skill</code><br/>
+This is any skill you can learn in the Kingdom. Examples include Moxious Madrigal and Amphibian Sympathy.</li><br/>
+
+<li><code>familiar</code><br/>This is any familiar you can find in the Kingdom, such as a Pet Rock or Cocoabo.</li><br/>
+
+<li><code>slot</code><br/>
+This is an equipment slot, including hat, weapon, off-hand and pants.  Accessories are denoted with by acc1, acc2, and acc3, which correspond to the first, second and third accessory slots, respectively.</li><br/>
+
+<li><code>location</code><br/>
+This is anywhere where you can go adventuring. Like The Spooky Forest or The Haunted Pantry.</li><br/>
+
+<li><code>zodiac</code><br/>
+This is an ascension sign, such as Vole or Opossum. One extra possibility is none, which is the sign given to newly-created characters which have never ascended.</li><br/>
+
+</ul>
+
+<p>While the special-typed variables are declared the same as primitive types (ie: <code>item i</code>), special-typed static values are declared very differently from static values.  To specify that a value is of a special type, <code>$typename[value]</code> must be used, with a string in square brackets designating the intended value (ie: <code>$item[cog]</code>).</p>
+
+<a name="branches"></a>
+</blockquote><h3>Flow Control Reference</h3><blockquote>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	if ( &lt;boolean expression> )
+	    &lt;block or statement>
+	&nbsp;</blockquote></pre>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	if ( &lt;boolean expression> )
+	    &lt;block or statement>
+	else
+	    &lt;block>
+	&nbsp;</blockquote></pre>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	while ( &lt;boolean expression> )
+	    &lt;block or statement>
+	&nbsp;</blockquote></pre>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	for &lt;var> from &lt;int expression> upto &lt;int expression> [ by &lt;int expression> ]
+	    &lt;block or statement>
+	&nbsp;</blockquote></pre>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	for &lt;var> from &lt;int expression> downto &lt;int expression> [ by &lt;int expression> ]
+	    &lt;block or statement>
+	&nbsp;</blockquote></pre>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	foreach &lt;key> in &lt;aggregate>
+	    &lt;block or statement>
+	&nbsp;</blockquote></pre>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	repeat
+	    &lt;block or statement>
+	until ( &lt;boolean expression> );
+	&nbsp;</blockquote></pre>
+
+<a name="functions"></a>
+</blockquote><h3><b>Function Reference</b></h3><blockquote>
+The KoLmafia User Scripts repository has begun a community-effort construction of an <a href="http://wiki.kolmafia.us/">ASH Function Reference Manual</a> which can be consulted for a listing of functions currently provided by the ASH interpreter.
+
+<a name="general"></a>
+</blockquote><h3><b>General ASH Tutorial, by Xylpher</b></h3><blockquote>
+
+This is a little tutorial to help you get started with advanced scripting in KoLmafia. We're going to build a healing script. Let's start with a simple one. Say you wish to heal using a Doc Galaktik's Ailment Ointment.<br>
+<br>
+There is a nifty function available as seen in the reference: use( [int], [item] ). That would probably be quite suitable for using a Doc Galaktik's Ailment Ointment! But as also seen in the reference, this function requires two arguments. You're going to have to tell the function how many items you wish to use, and which item you wish to use. So let's have the function use 1 Ailment Ointment.<br>
+<br>
+This leaves us with the following script:<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	use( 1, $item[Doc Galaktik's Ailment Ointment] );
+	&nbsp;</blockquote></pre>
+
+<br>
+That silly line in blue is a script. If you wish to use it, you're going to have to somehow get KoLmafia to read it. So look inside your KoLmafia folder. There might be a scripts folder in there, that's where your scripts go. If you don't have one, no matter. Just create it. Inside this folder, create a file called heal.ash and put that silly line in there. If you start up KoLmafia now, you can call the script. Go into the Top Menu, picking Scripts, and then heal.ash. The script will be executed. Alternately, you can call the script through the Graphical CLI, which allows you to follow it's activity.<br>
+<br>
+I thought this healing script would serve me until the end of eternity, but I ran into some problems with it: it doesn't seem to work if I'm out of Ailment Ointments. Now I don't wish to purchase 10000 Ailment Ointments at the start of each run to avert this problem, so it might be handy to have the script buy an Ailment Ointment before healing. A second function can be found in the reference, buy( [int], [item] ). It takes the exact same arguments as use but purchases the requested items rather than using them. Thus, version 2 of the script is born:<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	buy( 1, $item[Doc Galaktik's Ailment Ointment] );
+	use( 1, $item[Doc Galaktik's Ailment Ointment] );
+	&nbsp;</pre>
+
+<br>
+I don't know about you guys, but I'm cheap. I don't like it if this fancy script here decides to buy things I don't need. Those Ailment Ointments cost money, and if I still have some left, I want to use those. I don't collect Ailment Ointments. It's possible to create an if statement, which will buy an Ailment Ointment only if I don't already have some. Another function from the reference is required: item_amount( [item] ). This function doesn't do anything, but it returns the amount of [item] you currently have. That means that if I call item_amount( [item] ) for Ailment Ointments, I'll be able to use this value to determine whether I need to buy any. Let's test this function first. We will define a variable, put the item amount in there, and then return the variable. Like so:<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	int ailment_count = item_amount( $item[Doc Galaktik's Ailment Ointment] );
+	return ailment_count;
+	&nbsp;</blockquote></pre>
+
+<br>
+Of course you don't specifically need to use the variable. The following is an equivalent script:<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	return item_amount( $item[Doc Galaktik's Ailment Ointment] );
+	&nbsp;</blockquote></pre>
+
+<br>
+Now that we have sufficiently ensured that this function does in fact count items in your inventory. We were going to update our healing script with a condition. If I wish to buy an extra Ailment Ointment only if I don't already have one, I will have to use an if statement. There are two ways to use an if statement, you can use curly braces to define the set of actions you wish to be performed, or you can omit the curly braces, and only the next action will be skipped if the condition isn't met. The following two scripts are equivalent:<br>
+<br>
+
+Script 1:<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; 1 )
+	    buy( 1, $item[Doc Galaktik's Ailment Ointment] );
+	use( 1, $item[Doc Galaktik's Ailment Ointment] );
+	&nbsp;</blockquote></pre>
+
+<br>
+Script 2:<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; 1 )
+	{
+	    buy( 1, $item[Doc Galaktik's Ailment Ointment] );
+	}
+	use( 1, $item[Doc Galaktik's Ailment Ointment] );
+	&nbsp;</blockquote></pre>
+
+<br>
+If you are not sure how the two different methods of defining an if statement work, it's probably best to always use curly braces. Defining an if statement without curly braces doesn't have any special merits - you can always create the same if statement by putting curly braces around the single action.<br>
+<br>
+What if I want to use more than one Ailment Ointment? Using them one by one can be pretty annoying. It is possible to pass an argument to the script itself, but when doing so, you can no longer just put down a list of actions. You will have to define a function main. You can define main to take any amount of arguments of any type you like. You can also define it to return any type you like. But for the healing script, return type void and a single argument of the type int would probably work best. If you define a function main, don't put any actions outside of the functions - they will be ignored. Let's start by putting the healing script we just made into a function main without any alterations. This is an equivalent script again, but this time with a function main.<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	void main()
+	{
+	    if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; 1 )
+	    {
+	        buy( 1, $item[Doc Galaktik's Ailment Ointment] );
+	    }
+	    use( 1, $item[Doc Galaktik's Ailment Ointment] );
+	}
+	&nbsp;</blockquote></pre>
+
+<br>
+Back to why we made the function main in the first place - passing an argument. We want to have our healing script consume a custom amount of Ailment Ointments. We will have main take an integer as an argument and use that value to determine how many Ailment Ointments to use.  When the script runs, it will ask you what value you want for that argument. If we have 3 in our inventory and the argument tells us to use 5, we will have to purchase extra Ailment Ointments - but only 2, since we already have 3. So let's calculate the required amount of Ailment Ointments and purchase exactly that many.<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	void main( int amount )
+	{
+	    if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; amount )
+	    {
+	        buy( amount - item_amount( $item[Doc Galaktik's Ailment Ointment] ), $item[Doc Galaktik's Ailment Ointment] );
+	    }
+	    use( amount, $item[Doc Galaktik's Ailment Ointment] );
+	}
+	&nbsp;</blockquote></pre>
+
+<br>
+I don't know about you guys, but I'm lazy. Using multiple Ointments at once is an improvement, but typing in how many Ailment Ointments to use each time can still get pretty annoying. The wiki tells me the Ailment Ointment cures 8-10 HP, maybe I can use that information to calculate the amount of Ointments to use automatically. I'll rename main to use_galaktik, and create a new function main that calculates how many Ointments to use and calls use_galaktik with this amount. Two new functions are required for this: my_hp() and my_maxhp(). Both take no arguments and return an integer containing your current HP and your maximum HP, respectively. Also, I'm introducing the while statement. The while statement is used in the same way as an if statement, but if the condition is evaluated to be true and the while actions are executed, the condition is evaluated again, and the while actions will be executed as long as the conditions are true. Remember that a while loop will not check its condition in the middle of its actions, the condition is only checked between each full execution of the actions.<br>
+<br>
+Example:<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	int i = 0;
+	while( i &lt; 6)
+	{
+	    i = i + 1;
+	    i = i + 1;
+	    i = i + 1;
+	    i = i + 1;
+	}
+	return i;
+	&nbsp;</blockquote></pre>
+
+<br>
+At the end of the above small script, i will be 8, NOT 6. i will only be checked after each line within the while loop has been executed.<br>
+<br>
+Now, to use my_hp() and my_maxhp() to automatically calculate the correct amount of Ailment Ointments to use:<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	void use_galaktik( int amount )
+	{
+	    if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; amount )
+	    {
+	        buy( amount - item_amount( $item[Doc Galaktik's Ailment Ointment] ), $item[Doc Galaktik's Ailment Ointment] );
+	    }
+	    use( amount, $item[Doc Galaktik's Ailment Ointment] );
+	}
+
+	void main()
+	{
+	    while( my_maxhp() > my_hp() )
+	    {
+	        int toheal = my_maxhp() - my_hp();
+	        int amount = toheal / 10;
+	        if ( amount == 0 )
+	        {
+	            amount = 1;
+	        }
+	        use_galaktik( amount );
+	    }
+	}
+	&nbsp;</blockquote></pre>
+
+<br>
+The if ( amount == 0 ) check is in there because if you divide a number, the result will always be rounded down. Since we're in the while loop, our hp is still lower than our maxhp, and it is a good idea to use at least one Ailment Ointment, or we'll be stuck inside the loop forever.<br>
+<br>
+Now say you have *plenty* of maximum hp, and you don't mind missing out on just a few points of health. In the case that an Ailment Ointment would potentially heal you more than you need, you feel your hp is so close to its max that you don't need to heal anymore, the script should just end. You can make the while loop stop executing with a break statement. A break statement will stop the execution of a while loop, and continue where it would if the while would fail its condition check. Note that with a while inside a while, the innermost while would be cancelled, but the outer while would continue execution.<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	void use_galaktik( int amount )
+	{
+	    if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; amount )
+	    {
+	        buy( amount - item_amount( $item[Doc Galaktik's Ailment Ointment] ), $item[Doc Galaktik's Ailment Ointment] );
+	    }
+	    use( amount, $item[Doc Galaktik's Ailment Ointment] );
+	}
+
+	void main()
+	{
+	    while ( my_maxhp() > my_hp() )
+	    {
+	        int toheal = my_maxhp() - my_hp();
+	        int amount = toheal / 10;
+	        if ( amount == 0 )
+	        {
+	            break;
+	        }
+	        use_galaktik( amount );
+	    }
+	}
+	&nbsp;</blockquote></pre>
+
+<br>
+I don't know about you guys, but I'm cheap and lazy. I'm too lazy to change the healing script I use all the time, but I'm too cheap to use Ailment Ointments when I could be using Medicinal Herbs. There is a function that allows me to check my class, namely, my_class(). If I use my_class() to check whether my class is a Muscle class, I can determine whether I am capable of using Medicinal Herbs instead.<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	void use_galaktik( int amount )
+	{
+	    if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; amount )
+	    {
+	        buy( amount - item_amount( $item[Doc Galaktik's Ailment Ointment] ), $item[Doc Galaktik's Ailment Ointment] );
+	    }
+	    use( amount, $item[Doc Galaktik's Ailment Ointment] );
+	}
+
+	void heal_galaktik()
+	{
+	    while ( my_maxhp() > my_hp() )
+	    {
+	        int toheal = my_maxhp() - my_hp();
+	        int amount = toheal / 10;
+	        if ( amount == 0 )
+	        {
+	            break;
+	        }
+	        use_galaktik( amount );
+	    }
+	}
+
+	void heal_herbs()
+	{
+	    if ( item_amount( $item[Medicinal Herb's medicinal herbs] ) &lt; 1 )
+	    {
+	        buy( 1, $item[Medicinal Herb's medicinal herbs] );
+	    }
+	    use( 1, $item[Medicinal Herb's medicinal herbs] );
+	}
+
+	void main()
+	{
+	    boolean useHerbs = false;
+	    if( my_class() == $class[turtle tamer] )
+	    {
+	        useHerbs = true;
+	    }
+	    if ( my_class() == $class[seal clubber] )
+	    {
+	        useHerbs = true;
+	    }
+	    if( useHerbs )
+	    {
+	        heal_herbs();
+	    }
+	    else
+	    {
+	        heal_galaktik();
+	    }
+	}
+	&nbsp;</blockquote></pre>
+
+<br>
+Nin nin woosh. Now that is one nifty healing script, isn't it? Of course I forgot one final thingy: Accordion Thieves. Those can use Medicinal Herbs as well. Then again, they need to be level 9 to do so. Luckily, the function my_level() will tell us whether our Accordion Thief is level 9 or not. To make this check, I will use the AND condition, which is typed as "&&". This condition is true if and only if both sides evaluate to true. I'll also put the former two checks into an OR condition. The OR condition is typed as "||" and evaluates to true if either of the sides evaluates to true. The final script looks as follows:<br>
+<br>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	void use_galaktik( int amount )
+	{
+	    if ( item_amount( $item[Doc Galaktik's Ailment Ointment] ) &lt; amount )
+	    {
+	        buy( amount - item_amount( $item[Doc Galaktik's Ailment Ointment] ), $item[Doc Galaktik's Ailment Ointment] );
+	    }
+	    use( amount, $item[Doc Galaktik's Ailment Ointment] );
+	}
+
+	void heal_galaktik()
+	{
+	    while( my_maxhp() > my_hp() )
+	    {
+	        int toheal = my_maxhp() - my_hp();
+	        int amount = toheal / 10;
+	        if ( amount == 0 )
+	        {
+	            break;
+	        }
+	        use_galaktik( amount );
+	    }
+	}
+
+	void heal_herbs()
+	{
+	    if ( item_amount( $item[Medicinal Herb's medicinal herbs] ) &lt; 1 )
+	    {
+	        buy( 1, $item[Medicinal Herb's medicinal herbs] );
+	    }
+	    use( 1, $item[Medicinal Herb's medicinal herbs] );
+	}
+
+	void main()
+	{
+	    boolean useHerbs = false;
+	    if ( my_class() == $class[turtle tamer] || my_class() == $class[seal clubber] )
+	    {
+	        useHerbs = true;
+	    }
+	    if ( my_class() == $class[accordion thief] && my_level() >= 9 )
+	    {
+	        useHerbs = true;
+	    }
+	    if ( useHerbs )
+	    {
+	        heal_herbs();
+	    }
+	    else
+	    {
+	        heal_galaktik();
+	    }
+	}
+	&nbsp;</blockquote></pre>
+
+<a name="maps"></a>
+</blockquote><h3>ASH Maps Tutorial, by Veracity</h3><blockquote>
+
+<p>A map is indexed by one data type (the key) and associates that key with another (or the same) data type (the value). The key can be any ASH simple data type: boolean, int, float, string, item, zodiac, location, class, stat, skill, effect, familiar, slot, or monster. The value can be any of those or can be an aggregate: another map. This effectively allows multi-dimensional maps and. In fact, that's how the syntax we provide for multi-dimensional aggregates actually operates: maps of maps of maps ...</p>
+
+<p>You can declare a map any time you can declare a variable: as a top level (global) variable, as a function parameter, or as a local variable in any scope.</p>
+
+<p>You can fetch data from a map any time you can provide a data value: in an expression, as a function parameter, on the right side of an assignment statement, from a "return" statement, as so on. You can pass around entire maps, individual elements, or intermediate maps: "slices".</p>
+
+<p>If you use a map on the left side of an assignment, you set the whole map at once to the new value. If you specify a map and a complete set of indices (of the correct types) on the left side of an assignment statement, you set a single element. If you specify a map and a prefix of indices (of the correct type), you directly set one of the intermediate maps, a "slice".</p>
+
+<p>The syntax for declaring the data type of a map:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	&lt;data type> [ &lt;key type>, ... ] <variablename>
+	&nbsp;</blockquote></pre>
+
+<p>The syntax for referencing an element (or slice) of a map:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	&lt;variablename>[ &lt;key expression>, ... ]
+	&nbsp;</blockquote></pre>
+
+<p>All the key expressions will be evaluated at run time. If you specify all the keys the map expects, you fetch data of the type specified by the map. If you specify fewer keys than the map expects, you get an intermediate map, a "slice".</p>
+
+<p>As an example:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	boolean [string, string] props;
+	&nbsp;</blockquote></pre>
+
+<p>might be used to hold "properties" associated with names.</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	props[ "dog", "mammal" ] = true;
+	props[ "dog", "pet" ] = true;
+	props[ "dog", "fun" ] = false;
+	props[ "turtle", "mammal" ] = false;
+	props[ "turtle", "pet" ] = true;
+	props[ "turtle", "fun" ] = false;
+	props[ "aardvark", "mammal" ] = true;
+	props[ "aardvark", "pet" ] = false;
+	props[ "aardvark", "fun" ] = true;
+	&nbsp;</blockquote></pre>
+
+<p>references:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	props[ "dog", "mammal"] => true
+	boolean [string] animal = props[ "turtle" ];
+	animal[ "fun" ] => false
+	&nbsp;</blockquote></pre>
+
+<p>You can test the presence of a key in a map using the "contains" operator:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	&lt;aggregate reference expression> contains &lt;key expression>
+	&nbsp;</blockquote></pre>
+
+<p>Where &lt;aggregate reference expression> must evaluate at run time to a map or slice, and <key expression> must evaluate at run time to a key of the appropriate type. (Note that that is enforced at parse time; ASH can tell the datatype any expression will produce).</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	props contains "dog" => true
+	props contains "elephant" => false
+	props[ "aardvark" ] contains "fun" => true
+	animal contains "pet" => true
+	animal contains "favorite food" => false
+	&nbsp;</blockquote></pre>
+
+<p>You can remove a key-value association from a map using the "remove" unary operator:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	remove &lt;aggregate reference>
+	&nbsp;</blockquote></pre>
+
+<p>For clarification, an aggregate reference is "&lt;map name>[ &lt;index 1> ... &lt;index n> ]" where &lt;map name>[ &lt;index 1> ... &lt;index n-1> ] specifies the "slice" and &lt;index n> specifies the "key".  Which is just what you expect, if you fully specify the indices; for a single dimensional map, "map[10]" -> "map" is the slice and 10 is the key.  The "remove" operator removes the "key" from the "slice".  For example:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	string [int] map1;
+
+	map1[5] = "foo";
+	print( count( map1 ) + " " + map1 contains 5 + " " + map1[5] );
+	print( "remove: " + remove map1[5] );
+	print( count( map1 ) + " " + map1 contains 5 + " "  + map1[5] );
+	print( "remove: " + remove map1[5] );
+
+	int [string, string] map2;
+
+	map2["me","you"] = 17;
+	print( count( map2["me"] ) + " " + map2["me"] contains "you" + " " + map2["me","you"] );
+	print( "remove: " + remove map2["me", "you"] );
+	print( count( map2["me"] ) + " " + map2["me"] contains "you" + " " + map2["me","you"] );
+	print( "remove: " + remove map2["me", "you"] );
+
+	print( count( map2 ) + " " + map2["me"] );
+	print( "remove: " + remove map2["me"] );
+	print( count( map2 ) + " " + map2["me"] );
+	&nbsp;</blockquote></pre>
+
+<p>yields:</p>
+
+	<pre style="background-color: #e0e0ff"><blockquote>
+	1 true foo
+	remove: foo
+	0 false
+	remove:
+	1 true 17
+	remove: 17
+	0 false 0
+	remove: 0
+	1 aggregate int [string]
+	remove: aggregate int [string]
+	0 aggregate int [string]
+	&nbsp;</blockquote></pre>
+
+</div></body></html>

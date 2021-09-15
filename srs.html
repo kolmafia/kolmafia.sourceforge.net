@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+  <style type="text/css">/* <![CDATA[ */  @import "css/tigris.css";  @import "css/inst.css";  /*  ]]> */ </style>
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>KoLmafia: Software Requirements Specification</title>
+</head>
+
+<body>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=126572&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+<h2>Software Requirements Specification</h2>
+
+<div class="app">
+
+ <h3>Release Information</h3>
+ <div class="axial">
+ <table>
+  <tr>
+   <th>Project:</th>
+   <td>KoLmafia</td>
+  </tr>
+  <tr>
+   <th>Related Documents:</th>
+   <td>
+    <div><a href="proposal.html">Project proposal</a></div>
+    <div><a href="user-needs.html">User needs</a></div>
+    <div style="display:none"><a href="use-case-suite.html">Use case suite</a></div>
+    <div style="display:none"><a href="feature-set.html">Feature set</a></div>
+   </td>
+  </tr>
+ </table>
+ </div>
+
+ <p class="readonly"><strong>Process impact:</strong> The SRS precisely defines the software product that will be built.  Decisions made in writing the SRS are based on information in the <a href="proposal.html">project proposal</a> and <a href="user-needs.html">user needs</a> documents.  <div style="display:none">The SRS sets requirements that must be satisfied by the <a href="design.html">system design</a>.  The SRS is verified and validated by activities outlined in the <a href="qa-plan">QA plan</a>.</div></p>
+
+ <div style="display:none"> <h3>Introduction</h3>
+
+ <p></p></div>
+
+ <div style="display:none"> <h3>Functional Requirements</h3>
+
+ <p></p>
+
+ <p>Details:</p>
+  <ul><li>The <a href="feature-set.html">feature set</a> lists all the features in an organized way.</li></ul> </div>
+
+
+ <h3>Non-Functional Requirements</h3>
+
+ <dl>
+  <dt>Usability</dt>
+
+   <dd>More detailed information about usability can be found within the <a href="user-needs.html">user-needs document</a>.</dd>
+
+  <dt>Reliability</dt>
+
+   <dd>Because the game is a network-based game, reliability issues are equivalent to performance issues.  However, the game should not corrupt server data or character data as a result of its actions.  In order to meet this goal, KoLmafia will make its own decisions without player direction if and only if character data remains unaffected by these actions.  In all other cases, the KoLmafia client must act on behalf of the player.</dd>
+
+  <dt>Safety</dt>
+
+   <dd>Safety is not a concern for this project.</dd>
+
+  <dt>Security</dt>
+
+   <dd>Security is not a concern for this project.  No efforts will be made to encrypt communication, as the Kingdom of Loathing's servers are unable to decrypt the communications.</dd>
+
+  <dt>Performance</dt>
+
+   <dd>Because KoLmafia interfaces with the Kingdom of Loathing, performance of the program is heavily impacted by performance of the Kingdom of Loathing servers.  If the server is heavily lagged, KoLmafia should not arbitrarily crash without an error message, though abnormal hang times are acceptable, as the user can simply close the window to rectify the situation.  Communication should be optimized as far as possible, however, using locally cached information rather than network and/or remote database requests wherever possible in order to save bandwidth.</dd>
+
+  <dt>Maintainability and Upgradability</dt>
+
+   <dd>We will concentrate on following good design methods and maintain good documentation to allow anyone who is interested to work on this project without having to sift through code in order to determine what is going on with the project. The provided mailing lists and the discussion forum features will also be useful in meeting these ends.</dd>
+
+  <dt>Supportability</dt>
+
+   <dd>Supportability is not a concern for this project.</dd>
+
+ </dl>
+
+ <h3>Environmental Requirements</h3>
+
+ <dl>
+
+  <dt>System hardware requirements</dt>
+
+  <dd>Any user of the system must satisfy the following system hardware requirements:</dd>
+
+   <ul><li>A reasonably high-speed computer (500+ MHz) with reasonable internet connectivity (dialup/ISDN)</li>
+   <li>A monitor capable of handling 1024&#215;768 screen resolutions</li></ul>
+
+  <dt>System software requirements</dt>
+
+   <dd>Any user of any aspect of the system must run a current implementation of the Java Virtual Machine.  All code is intended to be Java 1.5.0 compliant and may use features not available prior to the release of Java 1.5.0.</dd>
+
+  <dt>Programmatic interfaces provided</dt>
+
+   <dd>Because the program will be written in Java, we will utilize the <a href="http://java.sun.com/j2se/1.5.0/docs/api">standard Java 5 Platform API</a>, and expect that the API will be provided on the systems on which KoLmafia will run.</dd>
+
+  <dt>Data import and export</dt>
+
+  <dd>Specifically, we will use the standard Properties class to store and retrieve user-specific data and tabbed-format text files for all data which is intended to be transparent to the user (item databases, etc).</dd>
+
+ </dl>
+
+</div>
+
+<div class="footnote">Copyright &#169; 2003 Jason Robbins.  All rights reserved. <a href="readyset-license.html">License terms</a>.  Retain this copyright statement whenever this file is used as a template.</div>
+
+</body>
+</html>

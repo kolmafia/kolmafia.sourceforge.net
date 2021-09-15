@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//Tigris//DTD XHTML 1.0 Transitional//EN"
+"http://style.tigris.org/tigris_transitional.dtd">
+<html>
+<head>
+  <style type="text/css">/* <![CDATA[ */  @import "css/tigris.css";  @import "css/inst.css";  /*  ]]> */ </style>
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+ <title>KoLmafia: User Manual</title>
+</head>
+
+<body>
+<a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=126572&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>
+<div class="app">
+
+ <a name="intro"></a>
+ <h3>Introducing Custom Combat</h3>
+
+  <dl><dd>The custom combat settings file (data/path.ccs) is arranged in such a way that a player can specify which commands to execute against which monsters.  For ease of use, all matching is substring-based.  First, an attempt is made to match against the monster name.  That failing, an attempt is made to match against the location name.</dd>
+
+  <dd>Customization is designed only to depend only on the monster you are currently fighting -- it is not meant to allow for strategies that a person changes based on remaining health or mana.  Advanced customization on this level means that the resulting scripts are difficult to read, which defeats the point of this feature's introduction.</dd>
+
+  <dd>However, in the event that you wish to make use of such advanced customization, there is an undocumented "consult" command which can be used in these scripts -- for more information on how consult scripts work, you will need read through KoLmafia's source code.  Do not request documentation of this feature or assistance with this feature; it will not be provided.</dd></dl>
+
+ <a name="structure"></a>
+ <h3>File Structure</h3>
+
+  <dd><pre style="background-color: #f0f0ff"><blockquote>
+[ default ]
+what to do in round 1 (or all rounds if no more data is specified)
+what to do in round 2 (or all rounds after round 1 if no more data is specified)
+
+[ partial name of monster ]
+what to do in round 1 (or all rounds if no more data is specified)
+what to do in round 2 (or all rounds after round 1 if no more data is specified)
+
+[ partial name of area ]
+what to do in round 1 (or all rounds if no more data is specified)
+what to do in round 2 (or all rounds after round 1 if no more data is specified)
+&nbsp;</blockquote></pre></dd></dl>
+
+
+ <a name="values"></a>
+ <h3>Permitted Values</h3>
+
+  <dl><dd>Any monster or area not flagged internally by KoLmafia as an ultra-rare encounter can be customized; no matter what is specified in the custom combats file, KoLmafia will always abort for ultra-rare monsters.</dd>
+
+  <dd>After setting up your custom combat settings, you might notice that KoLmafia changes it so that all the commands are prefixed with a round number.  This is strictly for internal management purposes to make things more compact; you do not have to type things in this way.</dd>
+
+  <dd>Settings can be modified once the player is logged in under the "Modify" tab of the "Custom Combat" tab of the Preferences window, or by manually modifying the data/path.ccs file mentioned previously.  Note that if you choose to modify the file directly, you must do so before login; KoLmafia will not reload the settings every battle.</dd>
+
+  <dd>Valid values include <b>attack</b>, <b>steal</b>, <b>delevel</b>, <b>abort</b>, <b>run away</b>, <b>item</b> followed by the name of an item, and <b>skill</b> followed by the name of the skill.  Please note that KoLmafia uses the name of the skill, as it appears in KoL.  Using spaces instead of dashes in skills like bottle-rockets, for example, will not work.  In the event that KoLmafia fails to understand what you are trying to say, it will assume that you mean <b>attack</b>.</dd>
+
+  <dd>KoLmafia has implicit support for Ambidextrous Funkslinging.  In the event that only one item is specified, if there is a second unit of that item available in your inventory, it will be used.  In the event that you do not have a second item, KoLmafia will only try to use one of the item.</dd>
+
+  <dd>KoLmafia also has explicit support for Ambidextrous Funkslinging.  Simply type the word <b>item</b>, followed by the first item's name, then followed by a comma, then a the second item's name.  Note that in the event that you are missing the first item, KoLmafia will still consider using the second item.  However, if you are missing the second item but not the first, KoLmafia will consider this to be an error and auto-stop.</dd>
+
+  <dd>In the event that the given skill cannot be used in the current round due to MP restrictions, or due to lack of items, KoLmafia automatically resorts to "attack".  In the event that an item cannot be used, KoLmafia will abort the battle and give control back to the player.</dd></dl>
+
+ <a name="example"></a>
+ <h3>Custom Combat Settings File Example</h3>
+
+  <dl><dd>As a demonstration of how to structure the file and how the commands should look, the following is what a disco bandit might use for their settings file, assuming they had already acquired the "disco face stab" skill and wanted to use it to weaken some of the game's stronger opponents before taking them down with either moxious maneuvers or standard attacks.</dd>
+
+  <dd><pre style="background-color: #f0f0ff"><blockquote>
+[ default ]
+attack
+
+[ mechamech ]
+delevel
+
+[ giant skeelton ]
+skill moxious maneuver
+
+[ huge ghuol ]
+skill moxious maneuver
+
+[ conjoined zmombie ]
+skill moxious maneuver
+
+[ giant skeelton ]
+skill moxious maneuver
+
+[ gargantulihc ]
+skill moxious maneuver
+
+[ orc chasm ]
+item dictionary
+
+&nbsp;</blockquote></pre></dd></dl>
+
+
+ </blockquote></dl>
+
+ </blockquote></dl>
+
+</div><div class="footnote">Copyright &#169; 2003 Jason Robbins.  All rights reserved. <a href="readyset-license.html">License terms</code></a>.  Retain this copyright statement whenever this file is used as a template.</div>

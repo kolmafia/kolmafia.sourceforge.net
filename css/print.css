@@ -1,0 +1,15 @@
+/* $Id: print.css,v 1.2 2003/07/27 22:27:38 shwei Exp $ */
+
+#banner, #footer, #leftcol, #breadcrumbs, .docs #toc, .docs .courtesylinks, .readonly
+{	display: none;
+}
+
+body.docs div.docs
+{	margin: 0 !important;
+	border: none !important
+}
+
+pre, code
+{	font-family: monospaced;
+	font-size: 8pt;
+}
